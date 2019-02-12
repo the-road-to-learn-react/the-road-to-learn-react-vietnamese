@@ -1,13 +1,14 @@
-# The Road to learn React [Book]
+# The Road to learn React [Sách]
 
 [![Slack](https://slack-the-road-to-learn-react.wieruch.com/badge.svg)](https://slack-the-road-to-learn-react.wieruch.com/)
 
-Official repository for [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/). If you want to leave a review, please do it on [Amazon](https://www.amazon.com/dp/B077HJFCQX?tag=21moves-20) or [Goodreads](https://www.goodreads.com/book/show/37503118-the-road-to-learn-react).
+Kho chính thức cho [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/). Nếu bạn muốn để lại một nhận xét, hãy để lại tại [Amazon](https://www.amazon.com/dp/B077HJFCQX?tag=21moves-20) hoặc [Goodreads](https://www.goodreads.com/book/show/37503118-the-road-to-learn-react).
 
-## Translations of the book into Leanpub
+## Các bản dịch của sách tại Leanpub
 
-The Road to learn React is also available in other languages. Thanks for all translators for their awesome work!
+The Road to learn React cũng có các ngôn ngữ khác. Cảm ơn những người phiên dịch vì đóng góp tuyệt vời của họ!
 
+* 🇻🇳 [Vietnamese](https://leanpub.com/the-road-to-learn-react-vietnamese)
 * 🇨🇳 [Simplified Chinese](https://leanpub.com/the-road-to-learn-react-chinese)
 * 🇫🇷 [French](https://leanpub.com/the-road-to-learn-react-french)
 * 🇰🇷 [Korean](https://leanpub.com/the-road-to-learn-react-korean)
@@ -16,18 +17,18 @@ The Road to learn React is also available in other languages. Thanks for all tra
 * 🇪🇸 [Spanish](https://leanpub.com/the-road-to-learn-react-spanish)
 * 🇮🇹 [Italian](https://leanpub.com/the-road-to-learn-react-italian)
 
-## Updates, Help and Support
+## Cập nhật, Hỗ trợ và Giúp đỡ
 
-* Get book updates via [E-Mail](https://www.getrevue.co/profile/rwieruch) or [Twitter](https://twitter.com/rwieruch)
-* Get help, while learning with the book or teach others, in the official [Slack Channel](https://slack-the-road-to-learn-react.wieruch.com/)
-* Find out how you can [support the Book](https://www.robinwieruch.de/about/)
+* Nhận thông báo cập nhật về sách qua [E-Mail](https://www.getrevue.co/profile/rwieruch) or [Twitter](https://twitter.com/rwieruch)
+* Nhận trợ giúp, trong lúc học hay dạy người khác, chính thức tại [Slack Channel](https://slack-the-road-to-learn-react.wieruch.com/)
+* Tìm hiểu thêm về cách bạn có thể [hỗ trợ cuốn sách](https://www.robinwieruch.de/about/)
 
 ## Contribute
 
-You can help to improve the book by opening Issues and Pull Requests (PR).
+Bạn có thể giúp đỡ để cải thiện sách bằng mở Issues và Pull Requests (PR).
 
-You can open up any PR that corrects spelling or explains a certain lesson with more detail. When writing such a technical book, you get fast blind on what needs more explanation and on what is already explained well.
+Bạn có thể mở bất kỳ PR nào chính xác chính tả hoặc giải thích một bài học cụ thể  chi tiết hơn. Khi viết một cuốn sách về kỹ thuật, bạn sẽ sớm chói lóa về những gì cần được giải thích kĩ hơn and những gì đã được giải thích tốt.
 
-In addition, you can open Issues when you run into problems. In order to make the fix for the Issue as easy as possible, please provide a couple of details such as error log, screenshot, which page of the book it happened, your node version (command line: `node -v`) and a link to your own repository. Not all of these details are mandatory, but most of them help to fix the Issue and to improve the book.
+Thêm vào đó, bạn có thể mở Issues ngay khi bạn gặp phải những vấn đề. Để làm cho sự chỉnh sửa cho Issue dễ dàng nhất có thể, hãy cung cấp một vài thông tin như ghi lỗi, ảnh chụp màn hình, trang nào của sách mà nó xảy ra, phiên bản node của bạn (command line: `node -v`) và một đường dẫn đến kho của bạn. Không phải tất cả những điều trên là bắt buộc, những phần lớn chúng giúp giải quyết Issue and cải thiện cuốn sách.
 
-Thanks a lot for your help!
+Cảm ơn nhiều vì sự giúp đỡ của các bạn!
