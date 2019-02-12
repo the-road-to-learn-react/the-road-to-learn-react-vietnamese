@@ -1,42 +1,42 @@
-# Introduction to React
+# Nhập môn React
 
-This chapter is an introduction to React, a JavaScript library for rendering interfaces in single-page and mobile applications, where I explain why developers should consider adding the React library to their toolbelts. We will dive into the React ecosystem, creating your first React application from scratch with no configuration. Along the way, we will introduce **JSX**, the syntax for React, and **ReactDOM**, so you have an understanding of React's practical uses in modern web applications.
+Chương này chúng ta sẽ giới thiệu về React, một thư viện JavaScript cho việc trả về giao diện ở trang đơn và các ứng dụng di động, nơi mà tôi sẽ giải thích tại sao các nhà phát triển nên cân nhắc thêm thư viện React vào các công cụ của họ. Chúng ta sẽ đi sâu vào hệ sinh thái React, hãy cùng tạo ứng dụng React đầu tiên của bàn từ đầu mà không cần cấu hình bất cứ thứ gì. Cùng nhau, chúng ta sẽ giới thiệu về **JSX**, cú pháp cho React, và **ReactDOM**, từ đó bạn có thể hiểu về sức mạnh thực tế của React trong các ứng dụng web hiện đại.
 
-## Hi, my name is React.
+## Xin chào, tên mình là React.
 
-Single page applications ([SPA](https://en.wikipedia.org/wiki/Single-page_application)) have become increasingly popular in recent years, as frameworks like Angular, Ember, and Backbone allow JavaScript developers to build modern web applications using techniques beyond vanilla JavaScript and jQuery. The three mentioned are among the first SPAs, each coming into its own between 2010 and 2011, but there are many more options for single-page development. The first generation of SPA frameworks arrived at the enterprise level, so their frameworks are more rigid. React, on the other hand, remains an innovative library that has been adopted by many technological leaders like [Airbnb, Netflix, and Facebook](https://github.com/facebook/react/wiki/Sites-Using-React).
+Các ứng dụng trang đơn (Single page applications) ([SPA](https://en.wikipedia.org/wiki/Single-page_application)) đã trở nên nổi tiếng nhanh chóng trong những năm gần đây, một frameworks như Angular, Ember, và Backbone cho phép các nhà phát triển JavaScript xây dựng ứng dụng web sử dụng những kỹ thuật vượt qua JavaScript thuần và JQuery. Những framework trên là một trong những SPAs đầu tiên, chúng tự xuất hiện vào giữ những năm 2010 và 2011, những có nhiều lựa chọn hơn cho phát triển trang đơn. Thế hệ đầu tiên của SPA frameworks ra đời ở mức độ cao cấp hơn, vì vậy những frameworks này cứng cáp hơn. React, ngược lại, giữ vững là một thư viện đầy sáng tạo được sử dụng bởi nhiều tập đoàn công nghệ lớn như [Airbnb, Netflix, and Facebook](https://github.com/facebook/react/wiki/Sites-Using-React).
 
-React was released by Facebook's web development team in 2013 as a view library, which makes it the 'V' in the [MVC](https://en.wikipedia.org/wiki/Model–view–controller) (model view controller). As a view, it allows you to render components as viewable elements in a browser, while its ecosystem lets us build single page applications. While the first generation of frameworks tried to solve many things at once, React is only used to build your view layer; specifically, it is a library wherein the view is a hierarchy of composable components. If you haven't heard about MVC before, don't bother about it, because it's just there to put React historically into context for people who come from other programming languages.
+React được ra đời bởi đội ngũ phát triển web của Facebook vào năm 2013 như một thư viện hiển thị (view library), điều làm nên chữ 'V' trong [MVC](https://en.wikipedia.org/wiki/Model–view–controller) (model view controller). Với một lớp hiển thị, nó cho phép bạn trả về các thành phần như là các phần tử có thể hiện thị trong trình duyệt, khi mà hệ sinh thái của nó giúp chúng ta xây dựng ứng dụng trang đơn. Trong khi thế hệ đầu tiên của frameworks cố gắng để giải quyết nhiều vấn đề một lúc, React chỉ xử dụng để xây dụng lớp hiển thị của bạn; đặc biệt, nó là một thư viện mà ở đó hiển thị là hệ thống phân cấp của các thành phần có thể kết hợp. Nếu bạn chưa từng nghe về mô hình MVC, đừng quá bận tâm về nó ,bởi vì nó chỉ ở đó để dấu mốc lịch sử của React vào bối cảnh cho những người đến từ những ngôn ngữ lập trình khác .
 
-In React, the focus remains on the view layer until more aspects are introduced to the application. These are the building blocks for an SPA, which are essential to build a mature application. They come with two advantages:
+Với React, sự tập trung duy trì ở lớp hiển thị cho đến khi nhiều diện mạo đến với ứng dụng. Có những khối xây dựng dành cho SPA, thứ mà là cần thiệt để xây dựng một ứng dụng hoàn chỉnh. Chúng đi kèm với hai lợi ích:
 
-* You can learn the building blocks one at a time without having to understand them altogether. In contrast, an SPA framework gives you every building block from the start. This book focuses on React as the first building block. More building blocks will eventually follow.
+* Bạn có thể học các khối xây dựng cùng lúc mà không cần phải hiểu tất cả cùng nhau. Ngược lại, một SPA framework cho bạn mọi khối xây dựng từ đầu. Quyển sách này tập trung vào React như là một khối xây dựng đầu tiên. Nhiều khối xây dựng cuối cùng sẽ đi theo.
 
-* All building blocks are interchangeable, which makes the ecosystem around React highly innovative. Multiple solutions can compete with each other, and you can choose the most appealing solution for any given challenge.
+* Tất cả các khối xây dựng đều có thể thay đổi được, điều này làm cho hệ sinh thái xung quanh React mang tính sáng tạo cao. Những giải pháp có thể cạnh tranh với nhau, và bạn có thể chọn giải pháp hợp lý nhất cho thử thách được đề ra.
 
-React is one of the best choices for building modern web applications. Again, it only delivers the view layer, but the surrounding ecosystem makes up an entirely flexible and interchangeable framework. React has a slim API, a robust and evolving ecosystem, and a great community.
+React là một trong những sự lựa chọn tuyệt vời nhất để xây dựng những ứng dụng web hiện đại. Một lần nữa, nó chỉ cung cấp lớp hiển thị, những xung quanh hệ sinh thái tạo nên một framework hoàn toàn linh hoạt và dễ dàng thay đổi. React có một đơn giản API, một hệ sinh thái mạnh mẽ và tiến hóa, và một cộng đồng tuyệt vời.
 
-### Exercises
+### Luyện tập
 
-If you'd like to know more about why I chose React, or to find a more in-depth look at the topics mentioned above, these articles grant a deeper perspective:
+Nếu bạn muốn tìm hiểu thêm về tại sao tôi chọn React, hoặc là muốn tìm hiểu sâu hơn về những chủ đề được nhắc đến ở trên, những bài viết sau mang đến cho bạn một cái nhìn sâu hơn:
 
 * [Why I moved from Angular to React](https://www.robinwieruch.de/reasons-why-i-moved-from-angular-to-react/)
 * [React's flexible ecosystem](https://www.robinwieruch.de/essential-react-libraries-framework/)
 * [How to learn a framework](https://www.robinwieruch.de/how-to-learn-framework/)
 
-## Requirements
+## Yêu cầu
 
-To follow this book, you should be familiar with the basics of web development, i.e how to use HTML, CSS, and JavaScript. It also makes sense to understand how [APIs](https://www.robinwieruch.de/what-is-an-api-javascript/) work, as they will be covered thoroughly. Also, I encourage you to join the official [Slack Group](https://slack-the-road-to-learn-react.wieruch.com/) to be a part of a growing React community where you can learn from and help others.
+Tiếp túc với quyển sách này, bạn nên làm quen với những thứ cơ bản của phát triển web, ví dụ làm thế nào để sử dụng HTML, CSS, và JavaScript. Điều đó rất dễ hiểu làm thế nào [APIs](https://www.robinwieruch.de/what-is-an-api-javascript/) hoạt động, chúng sẽ được đề cập kỹ càng. Ngoài ra, Ngoài ra tôi khuyến khích các bạn tham gia vào nhóm chính thức [Slack Group](https://slack-the-road-to-learn-react.wieruch.com/) để trở thành một phần của sự phát triển cộng đồng React nơi bạn có thể học từ việc giúp đỡ những người khác.
 
 ### Editor and Terminal
 
-For the lessons, you will need a text editor or an IDE and terminal (command line tool). I have provided [a setup guide](https://www.robinwieruch.de/developer-setup/) if you need additional help. Optionally, we recommend you keep your projects in GitHub while conducting the exercises in this book. There is a [short guide](https://www.robinwieruch.de/git-essential-commands/) on how to use these tools. Github has excellent version control, so you can see what changes were made if you make a mistake or just want a more direct way to follow along.
+Dành cho bài học này, bạn sẽ cần một trình soạn thảo văn bản hoặc một IDE và terminal (command line tool). Tôi đã cung cấp [một hướng dẫn cài đặt](https://www.robinwieruch.de/developer-setup/) Nếu bạn cần thêm sự giúp đỡ. Tùy chọn, chúng ta khuyên bạn giữ những dự án của bạn ở GitHub trong lúc thực hành các bài tập trong quyển sách này. Đây là một [hướng dẫn ngắn gọn](https://www.robinwieruch.de/git-essential-commands/) về làm thế nào sử dụng những công cụ này. Github có một khả năng quản lý phiên bản tuyệt vời, vì vậy bạn có thể theo dõi những thay đổi được tạo ra nếu bạn mắc lỗi hay bạn chỉ muốn có một cách trực tiếp để làm theo.
 
 ### Node and NPM
 
-Finally, you will need an installation of [node and npm](https://nodejs.org/en/). Both are used to manage libraries you will need along the way. In this book, you will install external node packages via npm (node package manager). These node packages can be libraries or whole frameworks.
+Cuối cùng, bạn sẽ cần một bản cài đặt của [node và npm](https://nodejs.org/en/). Cả hai được sử dụng để quản lý những thư viện bạn sẽ cần trong quá trình học. Trong cuốn sách này, bạn sẽ cài đặt những gói node bên ngoài qua npm (node package manager). Những gói node này có thể là thư viện hoặc cả một framework.
 
-You can verify your versions of node and npm on the command line. If you don't get any output in the terminal, you need to install node and npm first. These are my versions at the time of writing this book:
+Bạn có thể kiểm tra phiên bản của node và npm trên giao diện dòng lệnh. Nếu bạn không nhận được bất cứ kết quả nào ở terminal, bạn cần phải cài đặt node và npm trước. Đây là những phiên bản của tôi vào thời điểm viết quyển sách này:
 
 {title="Command Line",lang="text"}
 ~~~~~~~~
@@ -46,65 +46,65 @@ npm --version
 *v6.4.1
 ~~~~~~~~
 
-The additional content of this section is a crash course in node and npm. It is not exhaustive, but it will cover all of the necessary tools. If you are familiar with both of them, you can skip this section.
+Nội dung bổ sung của phần này là một khóa học đầy đủ về node và npm. Nó không toàn diện, nhưng nó sẽ mang đến tất cả cả công cụ cần thiết. Nếu bạn đã quen thuộc với chúng, bạn có thể bỏ qua phần này.
 
-The **node package manager** (npm) installs external node packages from the command line. These packages can be a set of utility functions, libraries, or whole frameworks, and they are the dependencies of your application. You can either install these packages to your global node package folder, or to your local project folder.
+The **node package manager** (npm) cài đặt những gói node bên ngoài từ giao diện dòng lệnh. Những gói này có thể là tập hợp của những hàm tiện ích, những thư viện, hay cả một framework, và chúng là những phụ thuộc cho ứng dụng của bạn. Bạn có thể hoặc là cài đặt những gói này vào thư mục gói node toàn cục của bạn, hoặc là vào thư mục dự án cục bộ của bạn.
 
-Global node packages are accessible from everywhere in the terminal, and only need to be installed to the global directory once. Install a global package by typing the following into a terminal:
+Những gói node toàn cục có thể được truy cập từ bất cứ đâu trong terminal, và chỉ cần được cài đặt vào thư mục toàn cục một lần duy nhất. Cài đặt một gói toàn cục bằng cách nhập dòng lệnh sau vào terminal:
 
 {title="Command Line",lang="text"}
 ~~~~~~~~
 npm install -g <package>
 ~~~~~~~~
 
-The `-g` flag tells npm to install the package globally. Local packages are used in your application by default. For our purposes, we will install React to the local directory terminal by typing:
+Cờ `-g` nói với npm cài đặt gói một cách toàn cục. Những gói cục bộ được sử dụng trong ứng dụng của bạn một cách mặc định. Dành cho mục đích của chúng ta, ta sẽ cài đặt React vào thư mục cục bộ qua terminal bằng cách nhập lệnh:
 
 {title="Command Line",lang="text"}
 ~~~~~~~~
 npm install react
 ~~~~~~~~
 
-The installed package will automatically appear in a folder called *node_modules/* and will be listed in the *package.json* file next to your other dependencies.
+Gói được cài đặt sẽ tự động xuất hiện ở trong một thư mục có tên là *node_modules/* và sẽ được thêm vào tệp *package.json* cạnh bên những phụ thuộc khác.
 
-To initialize the *node_modules/* folder and the *package.json* file for your project, use the following npm command. Then, you can install new local packages via npm:
+Để khởi tạo thư mục *node_modules/*  và tệp *package.json* cho dự án của bạn, sử dụng dòng lệnh npm sau. Sau đó, bạn có thể cài đặt những gói cục bộ mới qua npm:
 
 {title="Command Line",lang="text"}
 ~~~~~~~~
 npm init -y
 ~~~~~~~~
 
-The `-y` flag initializes all the defaults in your *package.json*. After initializing your npm project, you are ready to install new packages via `npm install <package>`.
+Cờ `-y` khởi tạo tất cả những thiết lập mặc định trong tệp *package.json* của bạn. Sau khi khởi tạo dự án npm, bạn đã sẵn sàng để cài đặt những gói mới thông qua`npm install <package>`.
 
-The *package.json* file allows you to share your project with other developers without sharing all the node packages. It will contain references to all node packages used in your project, called **dependencies**. Other users can copy a project without the dependencies using the references in *package.json*, where the references make it easy to install all packages using `npm install`. A `npm install` script will take all the dependencies listed in the *package.json* file and install them in the *node_modules/* folder.
+Tệp *package.json* cho phép bạn chia sẻ dự án của bạn với những nhà phát triển khác mà không chia sẻ tất cả các gói node. Nó sẽ bao gồm những tham chiếu tới tất cả các gói node dùng trong dự án của bạn, được gọi là **dependencies**. Những người dùng khác có thể sao chép dự án mà không chứa các phụ thuộc sử dụng tham chiếu trong *package.json*, nơi mà những tham chiếu này giúp cho dễ dàng cài đặt tất cả các gói sử dụng lệnh`npm install`. Một dòng lệnh`npm install sẽ lo hết phần cài đặt trong *package.json* và cài đặt chúng vào thư mục *node_modules/*.
 
-Finally, there's one more command to cover about npm:
+Cuối cùng, còn một vài lệnh nữa để hoàn thiện về npm:
 
 {title="Command Line",lang="text"}
 ~~~~~~~~
 npm install --save-dev <package>
 ~~~~~~~~
 
-The `--save-dev` flag indicates that the node package is only used in the development environment, meaning it won't be used in when the application is deployed to a the server or used in production. It is useful for testing an application using a node package, but want to exclude it from your production environment.
+Cờ `--save-dev`chỉ ra rằng gói node chỉ được sử dụng trong môi trường phát triển, nghĩa là nó sẽ không được sử dụng khi ứng dụng được triển khai trên một máy chủ hay được sử dụng trong phiên bản sản phẩm. Nó vô cùng hữu dụng để kiểm tra một ứng dụng sử dụng gói node, nhưng muốn loại trừ nó khỏi môi trường sản phậm của bạn.
 
-Some of you may want to use other package managers to work with node packages in your applications. **Yarn** is a dependency manager that works similar to **npm**. It has its own list of commands, but you still have access to the same npm registry. Yarn was created to solve issues npm couldn't, but both tools have evolved to the point where either will suffice today.
+Các bạn có thể muốn sử dụng trình quản lý gói khác để làm việc với gói node trong ứng dụng của bạn. **Yarn** là một trình quản lý phụ thuộc mà làm việc tương tự như **npm**. Nó có danh sách dòng lệnh riêng của chính nó, nhưng bạn vẫn cần phải truy cập vào cùng npm registry. Yarn được tạo ra để giải quyết những vấn đề mà npm không thể, nhưng cả hai công cụ cùng phát triển để chỉ ra rằng thứ nào sẽ làm tốt hơn ngày nay.
 
-### Exercises:
+### Luyện tập:
 
-* Set up a throw away npm project using the terminal:
-  * Create a new folder with `mkdir <folder_name>`
-  * Navigate into the folder with `cd <folder_name>`
-  * Execute `npm init -y` or `npm init`
-  * Install a local package like React with `npm install react`
-  * Check the *package.json* file and the *node_modules/* folder
-  * Attempt to uninstall and reinstall the *react* node package
-* Read about [npm](https://docs.npmjs.com/)
-* Read about [yarn](https://yarnpkg.com/en/docs/) package manager
+* Cài đặt một dự án npm bằng những dòng lệnh sử dụng terminal:
+  * Tạo một thư mục với lệnh `mkdir <folder_name>`
+  * Chuyển đến thư mục với `cd <folder_name>`
+  * Thực hiện `npm init -y` or `npm init`
+  * Cài một gói cục bộ như React với `npm install react`
+  * Kiểm tra *package.json* và thư mục *node_modules/* 
+  * Thử gỡ bỏ và cài đặt lại gói node *react* 
+* Đọc thêm [npm](https://docs.npmjs.com/)
+* Đọc thêm [yarn](https://yarnpkg.com/en/docs/) trình quản lý gói
 
-## Installation
+## Cài đặt
 
-There are many approaches to getting started with a React application. The first we'll explore is a CDN, short for [content delivery network](https://en.wikipedia.org/wiki/Content_delivery_network). Don't worry too much about CDNs now, because you will not use them in this book, but it makes sense to explain them briefly. Many companies use CDNs to host files publicly for their consumers. Some of these files are libraries like React, since the bundled React library is just a *react.js* JavaScript file.
+Có rất nhiều cách tiếp cận để bắt đầu với ứng dụng React. Thứ đầu tiên chúng ta sẽ khám phá là một CDN, viết tắt cho [content delivery network](https://en.wikipedia.org/wiki/Content_delivery_network). Đừng quá lo lắng về CDNs bây giờ, bởi vì bạn sẽ không sử dụng chúng trong quyển sách này, nhưng rất có lý để giải thích chúng một cách ngắn gọn. Rất nhiều công ty sử dụng CDNs để  lưu trữ tệp công khai cho người dùng của họ. Một trong những tệp này như là React, bởi lẽ thư viện được nén lại của React chỉ là một tệp JavaScript *react.js* .
 
-To get started with React by using a CDN, find the `<script>` tag in your web page HTML that points to a CDN url. You will need two libraries: *react* and *react-dom*.
+Để bắt đầu với React sử dụng một CDN, tìm thẻ `<script>` ở trong trang web HTML và trỏ tới đường dẫn CDN. Bạn sẽ cần hai thư viện: *react* và *react-dom*.
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~~
@@ -119,33 +119,33 @@ To get started with React by using a CDN, find the `<script>` tag in your web pa
 ></script>
 ~~~~~~~~
 
-You can also get React into your application by initializing it as node project. With a *package.json* file, you can install *react* and *react-dom* from the command line. However, the folder must be initialized as a npm project using `npm init -y` with a *package.json* file. You can install multiple node packages with npm:
+Bạn có thể cũng sẽ nhận vào ứng dụng của bạn bằng cách khởi tạo một dự án node. Với một tệp *package.json* , bạn có thể cài đặt *react* và *react-dom* từ giao diện dòng lệnh. Tuy nhiên, thư mục cần phải được khởi tạo như là một dự án npm sử dụng lệnhnpm init -y` với một tệp *package.json* . Bạn có thể cài đặt những gói node với npm:
 
 {title="Command Line",lang="text"}
 ~~~~~~~~
 npm install react react-dom
 ~~~~~~~~
 
-This approach is often used to add React to an existing application managed with npm.
+Phương pháp này thường được sử dụng để thêm React vào một ứng đã tồn tại được quản lý bởi npm.
 
-You may also have to deal with [Babel](http://babeljs.io/) to make your application aware of JSX (the React syntax) and JavaScript ES6. Babel transpiles your code--that is, it converts it to vanilla JavaScript--so most modern browsers can interpret JavaScript ES6 and JSX. Because of this difficult setup, Facebook introduced *create-react-app* as a zero-configuration React solution. The next section will show you how to setup your application using this bootstrapping tool.
+Bạn có thể cũng phải làm việc với [Babel](http://babeljs.io/) để giúp cho ứng dụng của bạn nhận ra được JSX (the React syntax) và JavaScript ES6. Babel biên dịch mã của bạn, nó chuyển mã thành JavaScript thuần--thứ mà hầu hết trình duyệt có thể  thông dịch JavaScript ES6 và JSX. Bởi vì quá trình cài đặt phức tạp này, Facebook giới thiệu *create-react-app* như là một giải pháp React không cần cấu hình. Phần tiếp theo sẽ cho bạn thấy làm thế nào để cài đặt ứng dụng của bạn bằng công cụ cực nhanh này.
 
-### Exercises:
+### Luyện tập:
 
-* Read about [React installations](https://reactjs.org/docs/getting-started.html)
+* Đọc thêm [React installations](https://reactjs.org/docs/getting-started.html)
 
-## Zero-Configuration Setup
+## Cài đặt không cần cấu hình
 
-In the Road to learn React, we will be using [create-react-app](https://github.com/facebookincubator/create-react-app) to bootstrap your application. It's an opinionated yet zero-configuration starter kit for React introduced by Facebook in 2016, [recommended for beginners by 96% of React users](https://twitter.com/dan_abramov/status/806985854099062785). In *create-react-app* the tooling and configuration evolve in the background, while the focus is on the application implementation.
+Ở Road to learn React, chúng ta sẽ sử dụng [create-react-app](https://github.com/facebookincubator/create-react-app) để đẩy nhanh ứng dụng của chúng ta. Đó là một ý tưởng gói mở đầu không cần cấu hình cho React được giới thiệu bởi Facebook vào 2016, [recommended for beginners by 96% of React users](https://twitter.com/dan_abramov/status/806985854099062785). Trong *create-react-app* công cụ và cấu hình thực hiện ngầm, trong khi chúng ta có thể tập trung triển khai ứng dụng.
 
-To get started, install the package to your global node packages, which keeps it available on the command line to bootstrap new React applications:
+Để bắt đầu, cài đặt gói này vào những gói node toàn cục của bạn, điều này sẽ giữ nó luôn có sẵn trong giao diện dòng lệnh để đẩy nhanh những dự án React mới:
 
 {title="Command Line",lang="text"}
 ~~~~~~~~
 npm install -g create-react-app
 ~~~~~~~~
 
-You can check the version of *create-react-app* to verify a successful installation on your command line:
+Bạn có thể kiểm tra phiên bản của *create-react-app* để chắc chắn cài đặt đã thành công trong giao diện dòng lệnh:
 
 {title="Command Line",lang="text"}
 ~~~~~~~~
@@ -153,7 +153,7 @@ create-react-app --version
 *v2.0.2
 ~~~~~~~~
 
-Now you are ready to bootstrap your first React application. The example will be referred to as *hackernews*, but you may choose any name you like. First, navigate into the folder:
+Ngay bây giờ bạn đã sẵn sàng để đẩy nhanh dự án React đầu tiên của bạn. Ví dụ sẽ liên quan đến *hackernews*, nhưng bạn có thể chọn bất kỳ tên nào bạn muốn. Trước tiên, chuyển tới thư mục:
 
 {title="Command Line",lang="text"}
 ~~~~~~~~
@@ -161,7 +161,7 @@ create-react-app hackernews
 cd hackernews
 ~~~~~~~~
 
-Now you can open the application in your editor. The following folder structure, or a variation of it depending on the *create-react-app* version, should be presented to you:
+Bây giờ bạn có thể mở ứng dụng trong trình soạn thảo. Đây là cấu trúc thư mục, hoặc một biến thể của nó phụ thuộc vào phiên bản *create-react-app* , nên xuất hiện:
 
 {title="Folder Structure",lang="text"}
 ~~~~~~~~
@@ -184,27 +184,27 @@ hackernews/
     serviceWorker.js
 ~~~~~~~~
 
-This is a breakdown of the folders and files:
+Đây là một phần chia nhỏ của thư mục và tệp:
 
-* **README.md:** The .md extension indicates the file is a markdown file. Markdown is used as a lightweight markup language with plain text formatting syntax. Many source code projects come with a *README.md* file to give you initial instructions about the project. When pushing your project to a platform such as GitHub, the *README.md* file usually displays information about the content contained in the repository. Because you used *create-react-app*, your *README.md* should be the same as the official [create-react-app GitHub repository](https://github.com/facebookincubator/create-react-app).
+* **README.md:** phần mở rộng .md chỉ ra tệp này là một tệp markdown. Markdown được sử dụng như là một ngôn ngữ đánh dấu siêu nhẹ với cú pháp định dạng văn bản giản dị. Rất nhiều dự án mã nguồn đi kèm với tệp *README.md* để đưa ra cho bản những chỉ dẫn cơ bản về dự án. Khi đưa dự án lên một nền tảng như GitHub, tệp *README.md* thường hiển thị thông tin về nội dung được bao gồm trong kho. Bởi lẽ bạn sử dụng *create-react-app*, tệp *README.md* của bạn sẽ giống hệt với bản chính thức [create-react-app GitHub repository](https://github.com/facebookincubator/create-react-app).
 
-* **node_modules/:** This folder contains all node packages that have been installed via npm. Since you used *create-react-app*, there should already be a couple of node modules installed for you. You will rarely touch this folder, because node packages are generally installed and uninstalled with npm from the command line.
+* **node_modules/:** Thư mục này chứa các gói node được cài đặt qua npm. Vì bạn sử dụng *create-react-app*, thư mục của bạn nên sẵn có một vài thứ của node modules cài đặt cho bạn. Bạn sẽ hiếm khi cần động đến thư mục này, bởi lẽ những gói node được cài đặt một cách chung và cài đặt với npm từ giao diện dòng lệnh.
 
-* **package.json:** This file shows you a list of node package dependencies and other project configurations.
+* **package.json:** Tệp này cho bạn thấy danh sách của những gói node phụ thuộc và những cầu hình khác của dự án.
 
-* **.gitignore:** This file displays all files and folders that shouldn't be added to your git repository when using git; such files and folders should only be located in your local project. The *node_modules/* folder is one example. It is enough to share the *package.json* file with others, so they can install dependencies on their end with `npm install` without your dependency folder.
+* **.gitignore:** Tệp này sẽ hiển thị tất cả những tệp và thư mục không nên thêm vào kho git của bạn khi sử dụng git; những tệp và thư mục chỉ nên xuất hiện trong dự án cục bộ của bạn. Ví dụ như thư mục *node_modules/* . Chia sẻ tệp *package.json*  đã là đủ với người khác, bởi vậy họ có thể tự cài đặt các phụ thuộc với lệnh`npm install` mà không cần đến những thư mục phụ thuộc của bạn.
 
-* **public/:** This folder holds development files, such as *public/index.html*. The index is displayed on localhost:3000 when developing your app. The boilerplate takes care of relating this index with all the scripts in *src/*.
+* **public/:** Thư mục này chứa những tệp phát triển, như là *public/index.html*. Tệp index hiển thị ở localhost:3000 khi phát triển ứng dụng của bạn. Bản mãu chăm sóc những tệp index liên quan với tất cả các mã lệnh trong *src/*.
 
-* **build/** This folder is created when you build the project for production, as it holds all of the production files. When building your project for production, all the source code in the *src/* and *public/* folders are bundled and placed in the build folder.
+* **build/** Thư mục này được tạo ra khi bạn xây dựng dự án cho phiên bản sản phẩm, nó nắm giữ tất cả những tệp sản phẩm. khi xây dựng dự án của bạn cho phiên bản sản phẩm, tất cả mã nguồn của bạn ở trong  *src/* và *public/* được nén lại và đặt trong thư mục build.
 
-* **manifest.json** and **serviceWorker.js:** These files won't be used for this project, so you can ignore them for now.
+* **manifest.json** và **serviceWorker.js:** Những tệp này không được sử dụng trong dự án này, nên bạn có thể  tạm thời bỏ qua chúng.
 
-In the beginning, everything you need is located in the *src/* folder. The main focus lies on the *src/App.js* file which is used to implement React components. It will be used to implement your application, but later you might want to split up your components into multiple files, where each file maintains one or more components on its own.
+Ngay khi bắt đầu, tất cả những gì bạn cần tập trung ở thư mục *src/*. Những dòng chính tập trung ở trong tệp *src/App.js* thứ mà được sử dụng để triển khai những thành phần React. Nó sẽ được sử dụng để triển khai ứng dụng của bạn, nhưng sau này bạn có thể muốn chia nhỏ những thành phần của bạn ra nhiều tệp khác, nơi mà mỗi tệp duy trì một hoặc nhiều thành phần của riêng nó.
 
-Additionally, you will find a *src/App.test.js* file for your tests, and a *src/index.js* as an entry point to the React world. You will get to know both files intimately in a later chapter. There is also a *src/index.css* and a *src/App.css* file to style your general application and components, which comes with the default style when you open them. You will modify them later as well.
+Thêm vào đó, bạn có thể tìm thấy tệp *src/App.test.js* cho quá trình kiểm thử của bạn, và một tệp*src/index.js* như là điểm vào của thế giới React. Bạn sẽ bắt đầu làm quen với cả hai tệp trong chương tiếp theo. Còn có tệp *src/index.css* và một tệp *src/App.css* để style cho ứng dụng và thành phần chung của bạn, thứ mà đi kèm với những style mặc định khi bạn mở chúng. Bạn sẽ thay đổi chúng ngay sau đây.
 
-The *create-react-app* application is a npm project you can use to install and uninstall node packages. It comes with the following npm scripts for your command line:
+Ứng dụng *create-react-app* là một dự án npm bạn có thể sử dụng để cài đặt và gỡ bỏ những gói node. Nó đi kèm với những lệnh npm sau đây cho giao diện dòng lệnh của bạn:
 
 {title="Command Line",lang="text"}
 ~~~~~~~~
@@ -218,20 +218,20 @@ npm test
 npm run build
 ~~~~~~~~
 
-The scripts are defined in your *package.json*, and your basic React application is bootstrapped. The following exercises will finally allow you to run your bootstrapped application in a browser.
+Những lệnh được định nghĩa trong tệp *package.json* của bạn, và dự án React cơ bản đã được xây dựng nhanh chóng. Những luyện tập dưới đây sẽ cho phép bạn cuối cùng chạy thử ứng dụng của bạn trên một trình duyệt.
 
-### Exercises:
+### Luyện tập:
 
-* `npm start` your application and visit the application in your browser (Exit the command by pressing Control + C)
-* Run the `npm test` script
-* Run the `npm run build` script and verify that a *build/* folder was added to your project (you can remove it afterward. Note that the build folder can be used later on to [deploy your application](https://www.robinwieruch.de/deploy-applications-digital-ocean/))
-* Familiarize yourself with the folder structure
-* Check the content of the files
-* Read about [npm scripts and create-react-app](https://github.com/facebookincubator/create-react-app)
+* `npm start` ứng dụng của bạn và ghé thăm ứng dụng trong trình duyệt (Thoát khỏi lệnh bằng cách nhấn Control + C)
+* Chạy lệnh `npm test` 
+* Chạy lệnh `npm run build` và kiểm tra lại xem thư mục *build/* đã được thêm vào dự án của bạn  (bạn có thể xóa nó đi sau). Chú ý rằng thư mục build có thể được sử dụng lát nữa tại [triển khai ứng dụng của bạn](https://www.robinwieruch.de/deploy-applications-digital-ocean/))
+* Làm quen với cấu trúc thư mục
+* Kiểm tra lại nội dung tệp
+* Đọc thêm [npm scripts and create-react-app](https://github.com/facebookincubator/create-react-app)
 
-## Introduction to JSX
+## Giới thiệu về JSX
 
-Now we will get to know JSX, the syntax in React. As mentioned before, *create-react-app* has already bootstrapped a basic application for you, and all files come with their own default implementations. For now, the only file we will modify is the *src/App.js* file.
+Giờ thì chúng ta sẽ chính thức làm quen với JSX, cú pháp trong React. Như đã được nhắc đến trước đó, *create-react-app* đã đẩy nhanh tốc độ phát triển ứng dụng của bạn, và tất cả các tệp đã đi kèm với phần triển khai mặc định của chúng. Hiện giờ, tệp duy nhất chúng ta sẽ thay đổi là *src/App.js* .
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -265,9 +265,9 @@ class App extends Component {
 export default App;
 ~~~~~~~~
 
-Don't worry if you're confused by the import/export statements and class declaration now. These are features of JavaScript ES6 we will revisit in a later chapter.
+Đừng lo lắng nếu bạn bối rối với the import/export dòng và khai báo lớp. Đây là những tính năng mới của ES6 chúng ta sẽ ghé thăm chúng ngay trong chương tiếp theo.
 
-In the file you should see a **React ES6 class component** with the name App. This is a component declaration. After you have declared a component, you can use it as an element anywhere in your application. It will produce an **instance** of your **component** or, in other words, the component gets instantiated.
+Trong tệp này bạn nên thấy một **React ES6 class component** với tên App. Đây là thành phần khai báo thành phần. Sau khi bạn khai báo một thành phần, bạn có thể sử dụng nó như là một như một phần tử ở bất cứ đầu trong ứng dụng của bạn. Nó sẽ tạo ra một **instance** của **component** hay, nói cách khác, thành phần đã được khởi tạo.
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~~
@@ -281,11 +281,11 @@ class App extends Component {
 <App />
 ~~~~~~~~
 
-The returned **element** is specified in the `render()` method. The components you instantiated earlier are made up of elements, so it is important to understand the differences between a component, an instance of a component, and an element.
+**Phần tử** trả về được định ra trong phương thức`render(). Những thành phần bạn khởi tạo trước đó được tạo nên bởi các phần tử, vậy nên nó rất quan trọng để hiểu sự khác biệt giữa một thành phần, một khởi tạo của thành phần, và một phần tử.
 
-You should see where the App component is instantiated, else you couldn't see the rendered output in a browser. The App component is only the declaration, but not the usage. You can instantiate the component anywhere in your JSX with `<App />`. You will see later where this happens in this application.
+Bạn nên thấy nơi mà thành phần App được khởi tạo, hoặc là bạn không thể thấy kết của được trả về ở trình duyệt. Thành phần App chỉ được khai báo, chứ không được sử dụng. Bạn có thể khởi tạo thành phần ở bất cứ đầu trong JSX của bạn với`<App />`. Lát nữa bạn sẽ thấy nơi điều kỳ diệu xảy ra trong ứng dụng này.
 
-The content in the render block may look similar to HTML, but it is actually JSX. JSX allows you to mix HTML and JavaScript. It is powerful, but it can be confusing when you are used to separating the two languages. It is a good idea to start by using basic HTML in your JSX. Open the `App.js` file and remove all unnecessary HTML code as shown:
+Nội dung của khối được trả về có thể trông khá giống như HTML, nhưng thực ra nó lại là JSX. JSX cho phép bạn trộn HTML và JavaScript. Nó rất mạnh mẽ, nhưng nó dễ  gây hiểu lầm khi bạn dừng để tách biệt hai ngôn ngữ. Nó là một ý tưởng hay để bắt đầu sử dụng HTML cơ bản trong JSX của bạn. Mở tệp `App.js` và xóa bỏ những mã HTML không cần thiết như sau:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -305,7 +305,7 @@ class App extends Component {
 export default App;
 ~~~~~~~~
 
-Now, you only return HTML in your `render()` method without any JavaScript. Let's define the "Welcome to the Road to learn React" as a variable. A variable is set in JSX by curly braces.
+Bây giờ, bạn chỉ cần trả về  HTML trong phương thức`render()`mà không cần một chút JavaScript nào. Hãy cùng nhau định nghĩa "Welcome to the Road to learn React" như một biến. Một biến được thiết lập trong  by cặp ngoặc nhọn.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -330,21 +330,21 @@ class App extends Component {
 export default App;
 ~~~~~~~~
 
-Start your application on the command line with `npm start` to verify the changes you've made.
+Khởi chạy ứng dụng của bạn từ giao diện dòng lệnh với lệnh npm start` để kiểm tra lại nhưng thay đổi bạn vừa thực hiện.
 
-You might have noticed the `className` attribute. It reflects the standard `class` attribute in HTML. JSX had replaced a handful of internal HTML attributes, but you can find all the [supported HTML attributes in React's documentation](https://reactjs.org/docs/dom-elements.html#all-supported-html-attributes), which all follow the camelCase convention. On your way to learn React, expect to run across more JSX specific attributes.
+Có lẽ bạn đã nhận ra thuộc tính`className. Nó tương tự như thuộc tính`class` chuẩn trong HTML. JSX đã thay đổi một số thuộc tính bên trong của HTML, nhưng bạn có thể tìm thấy tất cả chúng tại đây [supported HTML attributes in React's documentation](https://reactjs.org/docs/dom-elements.html#all-supported-html-attributes), tất cả chúng tuân theo quy tắc camelCase. Trên con đường học React, hay mong đợi để sử dụng nhiều hơn nhưng thuộc tính cụ thể của JSX.
 
-### Exercises:
+### Luyện tập:
 
-* Define more variables and render them in JSX
-  * Use a complex object to represent a user with a first name and last name
+* Định nghĩa nhiều biến hơn và trả về chúng trong JSX
+  * Sử dụng một đối tượng phúc tạp để đại diện cho người dùng với họ và tên
   * Render the user properties in JSX
-* Read about [JSX](https://reactjs.org/docs/introducing-jsx.html)
-* Read about [React components, elements and instances](https://reactjs.org/blog/2015/12/18/react-components-elements-and-instances.html)
+* Đọc thêm [JSX](https://reactjs.org/docs/introducing-jsx.html)
+* Đọc thêm [React components, elements and instances](https://reactjs.org/blog/2015/12/18/react-components-elements-and-instances.html)
 
-## ES6 const and let
+## ES6 const và let
 
-Notice that we declared the variable `helloWorld` with a `var` statement. JavaScript ES6 comes with two more ways to declare variables: `const` and `let`. In JavaScript ES6, you will rarely find `var` anymore. A variable declared with `const` cannot be re-assigned or re-declared, and cannot be changed or modified. Once the variable is assigned, you cannot change it:
+Chú ý rằng chúng ta đã khai báo biến`helloWorld`với`var`. JavaScript ES6 đi kèm với hai cách khai báo biến khác: `const` và `let`. Với JavaScript ES6, bạn sẽ hiếm khi thấy`var` nữa. Một biến được khai báo với`const`không thể bị gán lại hay khai báo lại nữa, và không thể bị thay đổi hay sửa đổi. Một khi nó đã được gán giá trị, bạn không thể thay đổi nó:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~~
@@ -362,9 +362,9 @@ let helloWorld = 'Welcome to the Road to learn React';
 helloWorld = 'Bye Bye React';
 ~~~~~~~~
 
-**TIP:** Declare variables with `let` if you think you'll want to re-assign it later on.
+**MẸO:** Khai báo biến với`let` nếu bạn nghĩ bạn sẽ muốn gán lại giá trị cuả nó sau.
 
-Note that a variable declared directly with `const` cannot be modified. However, when the variable is an array or object, the values it holds can get updated through indirect means:
+Chú ý rằng một biến được khai báo trực tiếp với `const` không thể bị chỉnh sửa. Tuy nhiên, khi biến này là một mảng hoặc một đối tượng, giá trị của nó nắm giữ sẽ vẫn được cập nhật một cách gián tiếp qua:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~~
@@ -375,7 +375,7 @@ const helloWorld = {
 helloWorld.text = 'Bye Bye React';
 ~~~~~~~~
 
-There are varying opinions about when to use *const* and when to use *let*. I would recommend using `const` whenever possible to show the intent of keeping your data structures immutable, so you only have to worry about the values contained in objects and arrays. Immutability is embraced in the React ecosystem, so `const` should be your default choice when you define a variable, though it's not really about immutability, but about assigning variables only once. It shows the intent of not changing (re-assigning) the variable even though its content can be changed.
+Có khá nhiều ý kiến khác nhau về việc khi nào thì nên sử dụng *const* và khi nào thì nên sử dụng *let*. Tôi sẽ khuyên các bạn nên sử dụng`const` bất cứ khi nào có thể để thể hiện ý định giữ cấu trúc dữ liệu của bạn bất biến, vậy nên bạn chỉ cần lo lắng về giá trị được chứa trong mảng và đối tượng. Tính bất biến được vây quanh trong hệ sinh thái của React, vậy nên `const` nên trở thành lựa chọn mặc định để định nghĩa một biến, mặc dù nó không hoàn toàn là bất biến, nhưng nó chỉ gán giá trị duy nhất một lần. Nó cho bạn thấy ý định không thay đổi (gán lại giá trị) của biến ngay cả khi nội dung của nó có thể bị thay đổi.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -398,19 +398,19 @@ class App extends Component {
 export default App;
 ~~~~~~~~
 
-In your application, we will use `const` and `let` over `var` for the rest of the book.
+Trong ứng dụng của bạn, chúng ta sẽ sử dụng `const` và `let` thay vì `var` cho phần còn lại của cuốn sách.
 
-### Exercises:
+### Luyện tập:
 
-* Read about [ES6 const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
-* Read about [ES6 let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let)
-* Gain an understanding of immutable data structures:
-  * Why do they make sense in programming?
-  * Why are they embraced in React and its ecosystem?
+* Đọc thêm [ES6 const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
+* Đọc thêm [ES6 let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let)
+* Hiểu thêm về tính bất biến của cấu trúc dữ liệu:
+  * Tại sao chúng quan trọng trong lập trình?
+  * Tại sao chúng được vây quanh trong React và hệ sinh thái của nó?
 
 ## ReactDOM
 
-The App component is located in your entry point to the React world: the *src/index.js* file.
+Thành phần App được xác định trong điểm đầu vào thế giới React : tệp *src/index.js* .
 
 {title="src/index.js",lang="javascript"}
 ~~~~~~~~
@@ -425,9 +425,9 @@ ReactDOM.render(
 );
 ~~~~~~~~
 
-`ReactDOM.render()` uses a DOM node in your HTML to replace it with JSX. It's a way to integrate React in any foreign application easily, and you can use `ReactDOM.render()` multiple times across your application. You can use it to bootstrap simple JSX syntax, a React component, multiple React components, or an entire application. In a plain React application, you would only use it once to bootstrap the component tree.
+`ReactDOM.render()` sử dụng một nốt trong HTML của bạn để thay thế nó với JSX. Đó là một cách để tích hợp React với bất kỳ ứng dụng bên ngoài nào một cách dễ dàng, và bạn có thể sử dụng`ReactDOM.render()` nhiều lần trong ứng dụng của bạn. Bạn có thể sử dụng nó để đẩy nhanh cú pháp JSX đơn giản, một thành phần React, nhiều thành phần React, hay thậm chí toàn bộ ứng dụng. Ở trong một ứng dụng thuần React, bạn chỉ nên sử dụng nó một lần để tạo ra cây thành phần nhanh chóng.
 
-`ReactDOM.render()` expects two arguments. The first argument is for rendering the JSX. The second argument specifies the place where the React application hooks into your HTML. It expects an element with an `id='root'`, found in the *public/index.html* file.
+`ReactDOM.render()` nhận vào hai tham số. Tham số thứ nhất để trả về  JSX. Tham số thứ hai xác định nơi mà ứng dụng kết nối với HTML của bạn. Nó nhận vào một phần tử với`id='root'`, được tìm thấy trong tệp *public/index.html* .
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~~
@@ -437,18 +437,18 @@ ReactDOM.render(
 );
 ~~~~~~~~
 
-During implementation, `ReactDOM.render()` takes your App component, though it can also pass simple JSX. It doesn't require a component instance.
+Trong quá trình triển khai, `ReactDOM.render()` nhận vào thành phần App, mặc dù nó có thể truyền qua  JSX đơn giản. Nó không nên yêu cầu một khởi tạo của thành phần.
 
-### Exercises:
+### Luyện tập:
 
-* Open the *public/index.html* to see where the React application hooks into your HTML
-* Read about [rendering elements in React](https://reactjs.org/docs/rendering-elements.html)
+* Mở *public/index.html* để xem nơi mà ứng dụng React kết nối với HTML của bạn
+* Đọc thêm [rendering elements in React](https://reactjs.org/docs/rendering-elements.html)
 
 ## Hot Module Replacement
 
-Hot Module Replacement can be used in the *src/index.js* file to improve your experience as a developer. By default, *create-react-app* will cause the browser to refresh the page whenever its source code is modified. Try it by changing the `helloWorld` variable in your *src/App.js* file, which should cause the browser to refresh the page. There is a better way of handling source code changes during development, however.
+Hot Module Replacement có thể được sử dụng trong *src/index.js* để cải thiện trải nghiệm của nhà phát triển. Mặc định, *create-react-app* sẽ khiến cho trình duyệt làm mới lại trang ngay khi mã nguồn của nó được sửa đổi. Thử sử dụng nó bằng cách thay đổi biến `helloWorld` trong tệp *src/App.js* , nó sẽ khiến trình duyệt làm mới lại trang. Có một cách tốt hơn để làm việc với sự thay đổi mã nguồn trong quá trình phát triển, tuy nhiên.
 
-Hot Module Replacement (HMR) is a tool for reloading your application in the browser without the page refresh. You can activate it in *create-react-app* by adding the following configuration to your *src/index.js* file:
+Hot Module Replacement (HMR) là một công cụ để tải lại ứng dụng của bạn ở trình duyệt mà không cần làm mới lại trang. Bạn có thể kích hoạt nó trong *create-react-app* bằng cách theo cấu hình sau vào tệp *src/index.js* :
 
 {title="src/index.js",lang="javascript"}
 ~~~~~~~~
@@ -469,22 +469,22 @@ if (module.hot) {
 # leanpub-end-insert
 ~~~~~~~~
 
-Again, change the `helloWorld` variable in your *src/App.js* file. The browser shouldn't refresh, but the application will reload and show the correct output. HMR comes with multiple advantages:
+Một lần nữa, hãy thử thay đổi biến helloWorld trong tệp *src/App.js*. Trình duyệt sẽ không làm mới, nhưng ứng dụng sẽ tải lại và hiện thị kết quả chính xác. HMR đi kèm với những lợi ích sau:
 
-Imagine you are debugging your code with `console.log()` statements. These statements will stay in your developer console, even though you changed your code, because the browser doesn't refresh the page anymore. In a growing application, page refreshes delay productivity; HMR removes this obstacle by eliminating the incremental time loss it takes for a browser to reload.
+Tưởng tượng bạn đang gỡ lỗi trong mã của bạn với`console.log()`. Những dòng này sẽ nằm trong console nhà phát triển của bạn, mặc dù bạn thay đổi mã của bạn, bởi vì trình duyệt không làm mới trang nữa. Trong một ứng dụng lớn, làm mới lại trang sẽ làm giảm tính sản phẩm; HMR loại của bỏ trở ngại này bằng cách loại bỏ thời gian tăng bị mất để trình duyệt tải lại.
 
-The most useful benefit of HMR is that you can keep the application state after the application reloads. For instance, assume you have a dialog or wizard in your application with multiple steps, and you are on step 3. Without HMR, you make changes to the source code and your browser refreshes the page. You would then have to open the dialog again and navigate from step 1 to step 3 each time. With HMR your dialog stays open at step 3, so you can debug from the exact point you're working on. With the time saved from page loads, this makes HMR an invaluable tool for React developers.
+Lợi ích tuyệt vời nhất của HMR đó là bạn có thể giữ trạng thái của ứng dụng ngay sau khi ứng dụng tải lại. Ví dụ, giả sử bạn có một cửa sổ hội thoại hoặc một hộp thoại với nhiều bước trong ứng dụng của bạn, và bạn đang ở bước thứ 3. nếu không có HMR, bạn thay đổi mã nguồn và trình duyệt làm mới lại trang. Bạn sẽ phải mở lại hộp thoại từ đầu và quay trở lại từ bước 1 đến bước 3 mỗi lần. với HMR hộp thoại của bạn giữ nguyên đang mở ở bước 3, giúp cho bạn có thể gỡ lỗi từ vị trí chính xác bạn đang làm việc. tiết kiệm được thời gian từ việc tải trang, điều này có thể giúp HMR trở thành công cụ vô giá cho các nhà phát triển React.
 
-### Exercises:
+### Luyện tập:
 
-* Change your *src/App.js* source code a few times to see HMR in action
-* Watch the first 10 minutes of [Live React: Hot Reloading with Time Travel](https://www.youtube.com/watch?v=xsSnOQynTHs) by Dan Abramov
+* Thay đổi mã nguồn của bạn *src/App.js* một vài lần để thấy HMR hoạt động
+* Xem 10 phút đầu với [Live React: Hot Reloading with Time Travel](https://www.youtube.com/watch?v=xsSnOQynTHs) bởi Dan Abramov
 
-## Complex JavaScript in JSX
+## JavaScript phức tạp trong JSX
 
-So far, you have rendered a few primitive variables in your JSX. Now, we will render a list of items. The list will contain sample data in the beginning, but later we will learn how to fetch the data from an external API.
+Đến đây, bạn đã trả về được một vài biến cơ bản bản trong JSX của bạn. Giờ thì, chúng ta sẽ trả về một danh sách các vật phẩm. Danh sách sẽ chứa dữ liệu mẫu ngay từ đầu, nhưng sau này chúng ta sẽ học cách nhận dữ liệu từ một API bên ngoài.
 
-First you have to define the list of items:
+Trước tiên bạn cần định nghĩa danh sách các vật phẩm:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -517,9 +517,9 @@ class App extends Component {
 }
 ~~~~~~~~
 
-The sample data represents information we will fetch from an API later on. Items in this list each have a title, a url, and an author, as well an identifier, points (which indicate how popular an article is), and a count of comments.
+Dự liệu mẫu thể hiện những thông tin chúng ta sẽ nhận từ API sau này. Những vật phẩm trong danh sách đều có tiêu đề, một url, và một tác giả, cũng như một ID, điểm (thử chỉ ra bài báo này nổi tiếng như nào), và một số lượng bình luận.
 
-Now you can use the [built-in JavaScript map functionality](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) in JSX, which iterates over a list of items to display them according to specific attributes. Again, we use curly braces to encapsulate the JavaScript expression in JSX:
+Giờ thì bạn có thể sử dụng [built-in JavaScript map functionality](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) trong JSX, thứ sẽ lặp qua danh sách của vật phẩm để hiển thị chúng dựa trên những thuộc tính cụ thể. Một lần nữa, chúng ta sử dụng ngoặc nhọn để đóng gói biểu thức JavaScript trong JSX:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -540,7 +540,7 @@ class App extends Component {
 export default App;
 ~~~~~~~~
 
-Using JavaScript alongside HTML in JSX is very powerful. For a different task you may have used `map` to convert one list of items to another. This time, we used `map` to convert a list of items to HTML elements.
+Sử dụng JavaScript cùng HTML trong JSX thật là vô cùng mạnh mẽ. Cho mỗi công việc khác nhau bạn có thể sử dụng map để chuyển đổi một danh sách các sản phẩm thành một thứ khác. Lần này, chúng ta sẽ sử dụng map để chuyển đổi thành những phần tử HTML.
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~~
@@ -553,7 +553,7 @@ console.log(newArray);
 // expected output: Array [2, 8, 18, 32]
 ~~~~~~~~
 
-So far, only the `title` is displayed for each item. Let's experiment with more of the item's properties:
+Đến đây, Tiêu đề là thứ duy nhất được hiển thị cho mỗi sản phậm. Hãy cùng thử nhiều hơn với các thuộc tính khác:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -583,9 +583,9 @@ class App extends Component {
 export default App;
 ~~~~~~~~
 
-Note how the `map` function is inlined in your JSX. Each item property is displayed with a `<span>` tag, and the url property of the item is in the `href` attribute of the anchor tag.
+Chú ý rằng hàm`map`cùng dòng với JSX của bạn. Mỗi thuộc tính của sản phẩm được hiển thị với một thẻ `<span>, và thuộc tính url của những sản phẩm được sử dụng trong thuộc tính `href` của thẻ anchor .
 
-React will display each item, but you can still do more to help React embrace its full potential. By assigning a key attribute to each list element, React can identify modified items when the list changes. These sample list items come with an identifier:
+React sẽ hiển thị mỗi sản phẩm, nhưng bạn vẫn cần phải làm thêm môt việc nữa để giúp React thức tỉnh toàn bộ khả năng tiềm ẩn của nó . Bằng cách gán một thuộc tính khóa cho mỗi phần tử của danh sách, React có thể nhận diện và chỉnh sữa những sản phẩm khi danh sách thay đổi. Những sản phẩm danh sách mẫu này đi kèm với một ID:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -605,7 +605,7 @@ React will display each item, but you can still do more to help React embrace it
 })}
 ~~~~~~~~
 
-Make sure that the key attribute is a stable identifier. Avoid using the index of the item in the array, because the array index is not stable. If the list changes its order, for example, React will not be able to identify the items properly.
+Chắc chắn rằng thuộc tính khóa là một ID ổn định. Tránh sử dụng số đếm của phần tử trong mảng, bởi lẽ số đếm của mảng là không ổn định. Ví dụ nếu danh sách thay đổi trật tự của chính nó, React sẽ không sẽ xác định được thuộc tính của phần tử.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -619,13 +619,13 @@ Make sure that the key attribute is a stable identifier. Avoid using the index o
 })}
 ~~~~~~~~
 
-Start your app in a browser, and you should see both items of the list displayed.
+Khởi động ứng dụng của bạn trên trình duyệt, và bạn nên thấy cả hai sản phẩm của danh sách được hiển thị.
 
-### Exercises:
+### Luyện tập:
 
-* Read about [React lists and keys](https://reactjs.org/docs/lists-and-keys.html)
-* Recap the [standard built-in array functionalities in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/)
-* Use more JavaScript expressions on your own in JSX
+* Đọc thêm [React lists and keys](https://reactjs.org/docs/lists-and-keys.html)
+* Tóm tắt [standard built-in array functionalities in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/)
+* Dùng nhiều biểu thức JavaScript expressions trong cú pháp JSX của chính bạn
 
 ## ES6 Arrow Functions
 
