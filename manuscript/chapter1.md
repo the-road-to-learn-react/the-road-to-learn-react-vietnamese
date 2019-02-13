@@ -627,9 +627,9 @@ Khởi động ứng dụng của bạn trên trình duyệt, và bạn nên th�
 * Tóm tắt [standard built-in array functionalities in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/)
 * Dùng nhiều biểu thức JavaScript expressions trong cú pháp JSX của chính bạn
 
-## ES6 Arrow Functions
+## ES6 Hàm mũi tên
 
-JavaScript ES6 introduced arrow functions expressions, which are shorter than a function expressions.
+JavaScript ES6 mang đến những biểu thức hàm mũi tên, cú pháp ngắn gọn hơn biểu thức hàm bình thường.
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~~
@@ -640,7 +640,7 @@ function () { ... }
 () => { ... }
 ~~~~~~~~
 
-You can remove the parentheses in an arrow function expression if it only has one argument, but you have to keep the parentheses if it gets multiple arguments:
+Bạn có thể xóa bỏ dấu ngoặc ở trong hàm mũi tên nếu nó chỉ có một tham số, nhưng bạn cần phải giữ lại dấu ngoặc nếu nó nhận vào nhiều tham số:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~~
@@ -657,7 +657,7 @@ item, key => { ... }
 (item, key) => { ... }
 ~~~~~~~~
 
-You can also write `map` functions more concisely with an ES6 arrow function:
+Bạn có thể viết hàm `map` một cách ngắn gọn hơn với hàm mũi tên ES6:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -677,7 +677,7 @@ You can also write `map` functions more concisely with an ES6 arrow function:
 })}
 ~~~~~~~~
 
-You can remove the *block body*, the curly braces, with the ES6 arrow function. In a *concise body*, an implicit return is attached; thus, you can remove the `return` statement. This will happen often in this book, so be sure to understand the difference between a block body and a concise body when using arrow functions.
+Bạn có thể bỏ đi phần *thân khối*, dấu ngoặc nhọn, với hàm mũi tên ES6. Ở trong một *thân ngắn gọn*, một trả về ngầm đã được gắn vào; vì vậy, bạn có thể xóa bỏ `return`. Điều này sẽ được dùng khá thường xuyên trong cuốn sách này, hãy chắc chắn hiểu rõ sự khác biệt giữ thân khối và thân ngắn gọn khi sử dụng hàm mũi tên.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -697,19 +697,19 @@ You can remove the *block body*, the curly braces, with the ES6 arrow function. 
 # leanpub-end-insert
 ~~~~~~~~
 
-Your JSX should look more concise and readable now, as it omits the `function` statement, the curly braces, and the return statement.
+JSX của bạn nên trông ngắn gọn và dễ đọc hơn bây giờ, vì nó lược bỏ `function`, dấu ngoặc nhọn, và return.
 
-### Exercises:
+### Luyện tập:
 
-* Read about [ES6 arrow functions](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+* Đọc thêm [ES6 arrow functions](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 
-## ES6 Classes
+## ES6 Lớp
 
-JavaScript ES6 introduced classes, which are commonly used in object-oriented programming languages. JavaScript, always flexible in its programming paradigms, allows functional programming and object-oriented programming to work side-by-side.
+JavaScript ES6 mang đến cho chúng ta lớp, thứ mà thường được sử dụng trong lập trình hướng đối tượng. JavaScript, luôn luôn linh hoạt trong khuynh hướng lập trình của nó, nó cho phép lập trình hàm và lập trình hướng đối tượng làm việc cùng nhau.
 
-While React embraces functional programming, e.g. immutable data structures and function compositions, classes are used to declare ES6 class components. React mixes the good parts of both programming paradigms.
+Trong khi React vây quanh lập trình hàm, ví dụ. cấu trúc dữ liệu bất biến và hàm hợp, lớp được dùng để khai báo thành phần lớp ES6. React kết hợp các điểm mạnh của cả hai khuynh hướng lập trình.
 
-Consider the following Developer class to examine a JavaScript ES6 class without a component.
+Xem qua lớp Developer dưới đây để kiểm tra lớp JavaScript ES6 không có thành phần.
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~~
@@ -725,9 +725,9 @@ class Developer {
 }
 ~~~~~~~~
 
-A class has a constructor to make it instantiable. The constructor takes arguments and assigns them to the class instance. A class can also define functions. Because the function is associated with a class, it is called a method, or a class method.
+Một lớp có hàm khởi tạo để làm cho nó mang tính khởi tạo hơn. Hàm khởi tạo nhận vào các tham số và gán chúng vào lớp khởi tạo. Một lớp có thể định nghĩa nhiều hàm. Bởi những hàm này được gắn với lớp, chúng được gọi là phương thức, hoặc phương thức lớp.
 
-The Developer class is the only class declaration we use here, as you can create multiple instances of a class by invoking it. It is similar to the ES6 class component, which has a declaration, but you have to use it somewhere else to instantiate it:
+Lớp Developer chỉ khai báo bằng class chúng ta sử dụng ở đây, bạn có thể tạo ra nhiều khởi tạo của lớp bằng cách gọi nó. Nó tương tự như lớp thành phần ES6, thứ có một khai báo, nhưng bạn phải sử dụng nó một chỗ nào đó để khởi tạo nó:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~~
@@ -736,7 +736,7 @@ console.log(robin.getName());
 // output: Robin Wieruch
 ~~~~~~~~
 
-React uses JavaScript ES6 classes for ES6 class components, which you have already used at least once so far:
+React sử dụng những lớp JavaScript ES6 cho lớp thành phần ES6, thứ mà bạn đã từng sử dụng ít nhất một lần:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -751,32 +751,32 @@ class App extends Component {
 }
 ~~~~~~~~
 
-When you declare the App component it extends from another component. In object-oriented programming, the term "extends" refers to the principle of inheritance, which means that functionality can be passed from one class to another. The App class extends from the Component class, meaning it inherits functionality from the Component class. The Component class is used to extend a basic ES6 class to a ES6 component class. It has all the functionalities that a component in React needs. The render method is one function you have already used. You will learn about other component class methods as we move along.
+Khi bạn khai báo thành phần component nó mở rộng từ một thành phần khác. Trong lập trình hướng đối tượng, khái niệm "extends" liên quan đến nguyên lý kế thừa, có nghĩa là chức năng có thể được truyền từ một lớp đến lớp khác. Lớp App mở rộng từ lớp thành phần, nghĩa là nó kể thừa chức năng từ lớp thành phần. Lớp thành phần được sử dụng để mở rộng lớp ES6 cơ bản tới lớp thành phần ES6. Nó có đầy đủ các chức năng một thành phần React cần. Phương thức trả về là một hàm bạn đã sử dụng. Bạn sẽ tìm hiểu về những phương thức lớp thành phần khác khi chúng ta tiếp tục.
 
-The `Component` class encapsulates all the implementation details of a React component, which allows developers to use classes as components in React.
+Lớp thành phần `Component` đóng gói tất cả những triển khai chi tiết của thành phần React, nó cho phép nhà phát triển sử dụng lớp như là một thành phần trong React.
 
-Methods exposed by a React `Component` are its public interface. One of these methods must be overridden, while the others don't need to be overridden. You will learn about these when we discuss lifecycle methods later. The `render()` method has to be overridden, because it defines the output of a React `Component`, so it must be defined. These are the basics of JavaScript ES6 classes, and how they are used in React to extend them to components.
+Những phương thức xuất ra ngoài bởi React `Component` là những giao diện công khai của nó. Một trong những phương thức này cần phải được ghi đè, trong khi những phương thức khác không cần ghi đè. Bạn sẽ tìm hiểu về những phương thức này khi chúng ta thảo luận về các phương thức vòng đời lát nữa. Phương thức `render()` cần phải được ghi đè, bởi vì nó định nghĩa kết quả của React `Component`, vậy nên nó phải được định nghĩa. Những điều này là cơ bản của lớp JavaScript ES6, và cách chúng được sử dụng trong React để mở rộng chúng tới thành phần.
 
-### Exercises:
+### Luyện tập:
 
-* Read about [JavaScript fundamentals before learning React](https://www.robinwieruch.de/javascript-fundamentals-react-requirements/)
-* Read about [ES6 classes](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes)
+* Đọc thêm [JavaScript fundamentals before learning React](https://www.robinwieruch.de/javascript-fundamentals-react-requirements/)
+* Đọc thêm [ES6 classes](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes)
 
 {pagebreak}
 
-Congratulations, you have learned to bootstrap your first React application! Let's recap:
+Chúc mừng, bạn đã tìm hiểu về cách khởi tạo nhanh chóng ứng dụng React đầu tiên của bạn! Hãy cùng tóm tắt nào:
 
 * **React**
-  * Create-react-app bootstraps a React application
-  * JSX mixes up HTML and JavaScript to define the output of React components in their render methods
-  * Components, instances, and elements are different items in React
-  * `ReactDOM.render()` is an entry point for a React application to hook React into the DOM
-  * Built-in JavaScript functionalities can be used in JSX
-  * Map can be used to render a list of items as HTML elements
+  * Create-react-app đẩy nhanh phát triển ứng dụng React
+  * JSX kết hợp HTML và JavaScript  để định nghĩa đầu ra của thành phần React trong phương thức trả về của nó
+  * Các thành phần, khởi tạo, và phần tử là những phần khác nhau trong React
+  * `ReactDOM.render()` là điểm đầu vào cho ứng dụng React để kết nối với DOM
+  * Những hàm được xây dựng sẵn trong JavaScript có thể được sử dụng trong JSX
+  * Map có thể được dùng để trả về một danh sách các sản phẩm như là phần tử HTML
 * **ES6**
-  * Variable declarations with `const` and `let` can be used for specific use cases
-  * Use const over let in React applications
-  * Arrow functions can be used to keep your functions concise
-  * Classes are used to define components in React by extending them
+  * Khai báo biến với `const` và `let` có thể được sử dụng trong những trường hợp cụ thể
+  * Ưu tiên sử dụng const hơn let trong ứng dụng React
+  * Hàm mũi tên có thể được dùng để giữ hàm của bạn ngắn gọn
+  * Lớp được sử dụng để định nghĩa thành phần trong React bằng cách mở rộng chúng
 
-Now that you've completed the first chapter, it's advisable to experiment with the source code you have written so far and see what changes you can make on your own. You can find the source code in the [official repository](https://github.com/the-road-to-learn-react/hackernews-client/tree/5.1).
+Giờ thì bạn đã hoàn thành chương đầu tiên, Bạn nên trải nghiệm với những mã nguồn bạn đã viết đến giờ và xem lại những thay đổi bạn đã tự thực hiện. Bạn có thể tìm thấy mã nguồn tại [kho chính thức](https://github.com/the-road-to-learn-react/hackernews-client/tree/5.1).
