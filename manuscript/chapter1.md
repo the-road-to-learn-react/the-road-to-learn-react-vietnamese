@@ -1,6 +1,6 @@
 # Nhập môn React
 
-Chương này chúng ta sẽ giới thiệu về React, một thư viện JavaScript cho việc trả về giao diện ở trang đơn và các ứng dụng di động, nơi mà tôi sẽ giải thích tại sao các nhà phát triển nên cân nhắc thêm thư viện React vào các công cụ của họ. Chúng ta sẽ đi sâu vào hệ sinh thái React, hãy cùng tạo ứng dụng React đầu tiên của bàn từ đầu mà không cần cấu hình bất cứ thứ gì. Cùng nhau, chúng ta sẽ giới thiệu về **JSX**, cú pháp cho React, và **ReactDOM**, từ đó bạn có thể hiểu về sức mạnh thực tế của React trong các ứng dụng web hiện đại.
+Chương này chúng ta sẽ giới thiệu về React, một thư viện JavaScript cho việc trả về giao diện ở trang đơn và các ứng dụng di động, nơi mà tôi sẽ giải thích tại sao các nhà phát triển nên cân nhắc thêm thư viện React vào các công cụ của họ. Chúng ta sẽ đi sâu vào hệ sinh thái React, hãy cùng tạo ứng dụng React đầu tiên của bạn từ đầu mà không cần cấu hình bất cứ thứ gì. Cùng nhau, chúng ta sẽ giới thiệu về **JSX**, cú pháp cho React, và **ReactDOM**, từ đó bạn có thể hiểu về sức mạnh thực tế của React trong các ứng dụng web hiện đại.
 
 ## Xin chào, tên mình là React.
 
