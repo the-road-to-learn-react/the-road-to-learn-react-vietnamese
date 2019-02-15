@@ -1,12 +1,12 @@
-# Basics in React
+# Cơ bản trong React
 
-This chapter will guide you through the basics of React. It covers state and interactions in components as we move past static components. We will also cover the different ways to declare a component, and how to keep components composable and reusable.
+Chương này sẽ hướng dẫn các bạn về những điều cơ bản của React. Nó sẽ bao gồm trạng thái và các tương tác của thành phần khi chúng ta đi qua những thành phần tĩnh. Chúng ta cũng sẽ tìm hiểu qua những cách khác nhau để khai báo một thành phần, và cách thức để giữ thành phân luôn có thể kết hợp và tái sử dụng.
 
-## Local Component State
+## Trạng thái cục bộ thành phần
 
-Local component state, also known as internal component state, allows you to save, modify, and delete properties stored in your component. The ES6 class component then uses a constructor to initialize local component state. The constructor is called only once, when the component initializes:
+Trạng thái cục bộ thành phần, thường được biết đến như một trạng thái bên trong của thành phần, cho phép bạn lưu, chỉnh sửa, và xóa những thuộc tính được lưu trữ trong thành phần của bạn. Thành phần lớp ES6 sau đó sử dụng một hàm khởi tạo để khởi tạo những biến thành phần cục bộ. Hàm khởi tạo được gọi một lần duy nhất, khi mà thành phần được khởi tạo:
 
-Let's introduce a class constructor.
+Hãy cùng đến với hàm khởi tạo của lớp.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -23,9 +23,9 @@ class App extends Component {
 }
 ~~~~~~~~
 
-The App component is a subclass of `Component`, so the `extends Component` is in the App component declaration.
+Thành phần App là một thành phần phụ của `Component`, bởi vì `extends Component` được khai báo trong thành phần App.
 
-It is mandatory to call `super(props);`. It sets `this.props` in your constructor in case you want to access them there. They would be `undefined` when accessing `this.props` in your constructor otherwise. In this case, the initial state of the component should be the sample list of items:
+Việc gọi `super(props);` là cần thiết. nó sẽ thiết lập `this.props` trong hàm khởi tạo của bạn trong trường hợp bạn muốn truy cập vào chúng. Nếu không chúng sẽ là `undefined` khi truy cập `this.props` ở trong hàm khởi tạo của bạn. Trong trường hợp này, trạng thái ban đầu của thành phần nên là danh sách mẫu các phần tử:
 
 
 {title="src/App.js",lang="javascript"}
@@ -59,7 +59,7 @@ class App extends Component {
 }
 ~~~~~~~~
 
-The state is bound to the class using the `this` object, so you can access the local state of the whole component. For instance, it can be used in the `render()` method. Previously you have mapped a static list of items in your `render()` method that was defined outside of your component. Now you are about to use the list from your local state in your component.
+Trạng thái được gắn với lớp sử dụng đối tượng `this`, nhờ đó bạn có thể truy cập trạng thái cục bộ của toàn bộ thành phần. Ví dụ, nó có thể được dùng trong phương thức `render()`. Trước đó bạn đã ánh xạ một danh sách tĩnh các phần tử trong phương thức `render()` mà được định nghĩa bên ngoài thành phần của bạn. Bây giờ bạn sẽ sử dụng danh sách từ trạng thái cục bộ trong thành phần của bạn.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -88,20 +88,20 @@ class App extends Component {
 }
 ~~~~~~~~
 
-The list is part of the component now, in the local component state. You could add, change, or remove items from your list. Every time you change your component state, the `render()` method of your component will run again. That's how you can change your local component state and see the component re-render the correct data from the local state.
+Danh sách hiện tại là một phần của thành phần, Ở trong trạng thái cục bộ của thành phần. Bạn có thể thêm, sửa, hoặc xóa những phần tử khỏi danh sách của bạn. Mỗi lần bạn thành đổi trạng thái của đối tượng, phương thức `render()` của thành phần của bạn sẽ chạy lại lần nữa. Đó là cách để bạn có thể thay đổi trạng thái cục bộ của thành phần và thấy việc trả về lại của dữ liệu mới từ trạng thái cục bộ.
 
-Be careful not to mutate the state directly. Instead, you should use a method called `setState()` to modify your states. We will cover these concepts in more depth next chapter.
+Hãy cẩn thận đừng thay đổi trạng thái một cách trực tiếp. Thay vào đó, bạn nên sử dụng phương thức tên là `setState()` để chỉnh sửa trạng thái của bạn. Chúng ta sẽ được tìm hiểu về những khái niệm này một cách kỹ càng hơn trong chương tiếp theo.
 
-### Exercises:
+### Luyện tập:
 
-* Experiment with the local state
-  * Define more initial state in the constructor
-  * Use and access the state in your `render()` method
-* Read about [the ES6 class constructor](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes#Constructor)
+* Trải nghiệm với trạng thái cục bộ
+  * Định nghĩa nhiều trạng thái ban đầu hơn trong hàm khởi tạo
+  * Sử dụng và truy cập phương thức `render()`
+* Đọc thêm [the ES6 class constructor](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes#Constructor)
 
-## ES6 Object Initializer
+## Khởi tạo đối tượng ES6 
 
-In JavaScript ES6, you can use a shorthand property syntax to initialize your objects more concisely, like following object initialization:
+Trong JavaScript ES6, bạn có thể sử dụng một cú pháp ngắn gọn để khởi tạo đối tượng của bạn một cách nhanh chóng hơn, như cách khởi tạo đối tượng dưới đây:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~~
@@ -112,7 +112,7 @@ const user = {
 };
 ~~~~~~~~
 
-When the property name in your object is the same as your variable name, you can do the following:
+Khi thuộc tính name trong đối tượng của bạn trùng với biến name, bạn có thể làm như sau:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~~
@@ -123,7 +123,7 @@ const user = {
 };
 ~~~~~~~~
 
-In your application, you can do the same. The list variable name and the state property name share the same name.
+Trong ứng dụng của bạn, bạn có thể làm tương tự. Tên biến danh sách và tên thuộc tính trạng thái là giống nhau.
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~~
@@ -138,7 +138,7 @@ this.state = {
 };
 ~~~~~~~~
 
-Shorthand method names are also useful. In JavaScript ES6, you can initialize methods in an object more concisely:
+Tên phương thức ngắn gọn cũng vô cùng hữu dụng. Trong JavaScript ES6, bạn có thể khởi tạo phương thức trong một đối tượng một cách nhanh gọn hơn:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~~
@@ -157,7 +157,7 @@ const userService = {
 };
 ~~~~~~~~
 
-Finally, you are allowed to use computed property names in JavaScript ES6:
+Cuối cùng, bạn được phép sử dụng những tên thuộc tính đã được tính toán trong JavaScript ES6:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~~
@@ -173,14 +173,14 @@ const user = {
 };
 ~~~~~~~~
 
-Later, you will be able to use computed property names to allocate values by key in an object dynamically, a handy way to generate lookup tables in JavaScript.
+Lát nữa, bạn sẽ có thể sử dụng tên thuộc tính được tính toán để lưu trữ giá trị bởi khóa trong đối tượng động, một cách dễ dàng để tạo ra bảng tra cứu trong JavaScript.
 
-### Exercises:
+### Luyện tập:
 
-* Experiment with ES6 object initializer
-* Read about [ES6 object initializer](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer)
+* Trải nghiệm với khởi tạo đối tượng ES6
+* Đọc thêm [ES6 object initializer](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer)
 
-## Unidirectional Data Flow
+## Dòng chảy dữ liệu vô hướng
 
 Now you have a local state in your App component, but haven't manipulated the state yet. The local state is static, so its component is as well. A good way to experience state manipulation is to engage in component interaction.
 
