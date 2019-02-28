@@ -182,9 +182,9 @@ Lát nữa, bạn sẽ có thể sử dụng tên thuộc tính được tính t
 
 ## Dòng chảy dữ liệu vô hướng
 
-Now you have a local state in your App component, but haven't manipulated the state yet. The local state is static, so its component is as well. A good way to experience state manipulation is to engage in component interaction.
+Giờ thì bạn đã có trạng thái cục bộ trong thành phần App của bạn, nhưng chưa hề sử dụng trạng thái này. Trạng thái cục bộ là tĩnh, bởi vì thành phần của nó cũng là tĩnh. Một cách tốt để trải nghiệm việc thao túng trạng thái là bắt đầu làm việc với tương tác thành phần.
 
-We will practice this concept by adding a button for each item in the displayed list. The button will read "Dismiss", as its purpose will be to remove an item from the list. In an email client, for example, it would be a useful way to mark some list items as 'read' while keeping the unread items separate.
+Chúng ta sẽ luyện tập khái niệm này bằng cách thêm một cái nút cho mỗi sản phẩm trong danh sách đã được hiển thị. Nút sẽ đọc "Dismiss", mục đích của nó là xóa sản phẩn khỏi danh sách. Trong một email của khách hàng, ví dụ, nó sẽ là một cách hiệu quả để đánh dấu một số sản phẩm của danh sách là 'đọc' trong khi đó giữ những sản phẩm chưa đọc tách biệt.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -221,11 +221,11 @@ class App extends Component {
 }
 ~~~~~~~~
 
-The `onDismiss()` class method is not defined yet. We will do it in a moment, but for now, let's focus on the `onClick` handler of the button element. As you can see, the `onDismiss()` method in the `onClick` handler is enclosed by an arrow function. You can use it to peek at the `objectID` property of the `item` object and identify the item to be dismissed. An alternative way would be to define the function outside of the `onClick` handler and only pass the defined function to it. We will cover handlers more in-depth as we move along.
+Phương thức lớp `onDismiss()` chưa được định nghĩa. Chúng ta sẽ định nghĩa nó ngay thôi, nhưng hiện tại, hãy cùng tập trung vào hàm xử lý `onClick` của phần tử button. Như bạn có thể thấy, phương thức `onDismiss()` trong hàm xử lý `onClick` được đóng gói bởi hàm mũi tên. Bạn có thể sử dụng nó với thuộc tính `objectID` của đối tượng `item` và xác định sản phẩm nào cần được loại bỏ. Một cách khác là định nghĩa một hàm bên ngoài hàm xử lý `onClick` và chỉ truyền vào hàm được định nghĩa cho nó. Chúng ta sẽ tìm hiểu những hàm xử lý này kỹ hơn trong quá trình học.
 
-Note the use of multilines for the button element, and how elements with multiple attributes can get disorganized easily. The button element is used with multilines and indentations to keep it readable. While this practice isn't specific to React development, it is a programming style I recommend for cleanliness and your own peace of mind.
+Chú ý việc sử dụng nhiều dòng cho phần tử element, và những phần tử với nhiều thuộc tính có thể bị lộn xộn dễ dàng như thế nào. Phần tử button được sử dụng với nhiều dòng và lùi đầu dòng để giúp nó dễ đọc . trong khi việc luyện tập này là không rõ ràng trong phát triển React, nó là phong cách lập trình mà tôi đề xuất để đạt được sự trong sạch và tâm trí yên bình.
 
-Now we will implement the `onDismiss()` functionality. It takes an id to identify the item to dismiss. The function is bound to the class and thus becomes a class method. That's why you access it with `this.onDismiss()` and not `onDismiss()`. The `this` object is your class instance. In order to define the `onDismiss()` as class method, you have to bind it in the constructor:
+Giờ thì chúng ta sẽ triển khai chức năng của `onDismiss()`. Nó nhận vào id để xác định sản phẩm cần xóa bỏ. Hàm được gắn vào lớp và trở thành phương thức lớp. Đó là lý do tại sao bạn truy cập nó với `this.onDismiss()` chứ không phải `onDismiss()`. đối tượng `this` là thực thể lớp. Để định nghĩa `onDismiss()` như phương thức lớp, bạn cần gắn nó với hàm khởi tạo:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -249,7 +249,7 @@ class App extends Component {
 }
 ~~~~~~~~
 
-In the next step, we define its functionality, the business logic, in the class:
+Tiếp theo, chúng ta định nghĩa chức năng của nó, logic kinh doanh, trong lớp:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -277,9 +277,9 @@ class App extends Component {
 }
 ~~~~~~~~
 
-Now we can define what happens inside a class method. Remember, the objective is to remove the item identified by the id from the list and store an updated list to the local state. The updated list will be used in the re-running `render()` method to display it, where the removed item should no longer appear.
+Giờ thì chúng ta có thể định nghĩa thứ gì xảy ra trong phương thức lớp. Hãy nhớ rằng, mục đích là để xóa bỏ sản phẩm được xác định bởi id khỏi danh sách và lưu trữ danh sách mới vào trạng thái cục bộ. Danh sách mới sẽ được sử dụng trong phương thức `render()` chạy lại để hiển thị nó, nơi mà những sản phẩm bị loại bỏ sẽ không còn xuất hiện nữa.
 
-You can remove an item from a list using [JavaScript's built-in filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) functionality, which takes a function as input. The function has access to each value in the list because it iterates over each item, so you can evaluate them based on certain conditions.
+Bạn có thể loại bỏ sản phẩm trong danh sách sử dụng chức năng [JavaScript's built-in filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter), nó nhận vào một hàm . Hàm có thể truy cập đến từng giá trị của danh sách bởi vì nó sẽ duyệt lần lượt qua mỗi sản phẩm, vì vậy bạn có thể tính toán chúng dựa trên những điều kiện cụ thể.
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~~
@@ -291,7 +291,7 @@ console.log(filteredWords);
 // expected output: Array ["exuberant", "destruction", "present"]
 ~~~~~~~~
 
-The function returns a new list instead of mutating the old one, and it supports the React convention of using immutable data structures.
+Hàm sẽ trả về một danh sách mới thay vì thay đổi cái cũ, và nó hỗ trợ cú pháp React sử dụng một cấu trúc dữ liệu bất biến.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -304,7 +304,7 @@ onDismiss(id) {
 }
 ~~~~~~~~
 
-In the next step, we extract the function and pass it to the filter function:
+Tiếp theo, chúng ta sẽ phân tách hàm và truyền nó vào hàm filter:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -319,7 +319,7 @@ onDismiss(id) {
 }
 ~~~~~~~~
 
-**Remember**: You can filter more efficiently using a JavaScript ES6 arrow function.
+**Ghi nhớ**: Bạn có thể dọc một cách hiệu quả hơn sử dụng hàm mũi tênJavaScript ES6.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -331,7 +331,7 @@ onDismiss(id) {
 }
 ~~~~~~~~
 
-You could even inline it again like you did in the `onClick` handler of the button, though it might get less readable:
+Bạn thậm chí có thể viết nó một dòng như bạn đã làm với hàm xử lý `onClick` của nút, mặc dù nó có thể ít dễ đọc hơn:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -342,7 +342,7 @@ onDismiss(id) {
 }
 ~~~~~~~~
 
-The list removes the clicked item now, but the state hasn't updated yet. Use the `setState()` class method to update the list in the local component state:
+Danh sách loại bỏ những sản phẩm được click, nhưng trạng thái chưa hề thay đổi. Sử dụng phương thức lớp `setState()` để thay đổi danh sách trong trạng thái cục bộ của thành phần:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -355,15 +355,15 @@ onDismiss(id) {
 }
 ~~~~~~~~
 
-Run the application again and try the "Dismiss" button. What you experienced is the **unidirectional data flow** of React. An action is triggered in the view layer with `onClick()`, a function or class method modifies the local component state, and then the `render()` method of the component runs again to update the view.
+Chạy ứng dụng lại lần nữa và thử nút "Dismiss". Những gì bạn trải nghiểm chính là **dòng chảy dữ liệu vô hướng** của React. Một hành động được kích hoạt trong lớp hiển thị với `onClick()`, một hàm hoặc phương thức lớp thay đổi trạng thái cục bộ, và rồi phương thức `render()` của thành phần chạy lại lần nữa để thay đổi giao diện.
 
-### Exercises:
+### Luyện tập:
 
-* Read about [the state and lifecycle in React](https://reactjs.org/docs/state-and-lifecycle.html)
+* Đọc thêm [the state and lifecycle in React](https://reactjs.org/docs/state-and-lifecycle.html)
 
-## Bindings
+## Gắn
 
-It is important to learn about bindings in JavaScript classes when using React ES6 class components. In the previous chapter, you have bound your class method `onDismiss()` in the constructor.
+Học về gắn trong JavaScript là quan trọng khi sử dụng lớp thành phần React ES6. Trong những chương trước, bạn đã gắn phương thức lớp `onDismiss()` trong hàm sinh.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -382,7 +382,7 @@ class App extends Component {
 }
 ~~~~~~~~
 
-The binding step is necessary because class methods don't automatically bind `this` to the class instance. Let's demonstrate it with the help of the following ES6 class component:
+Bước gắn là cần thiết bởi phương thức lớp không tự động gắn `this` với khởi tạo lớp. Hãy cùng trình diễn nó với sự trợ giúp của lớp thành phần ES6 dưới đây:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~~
@@ -404,9 +404,9 @@ class ExplainBindingsComponent extends Component {
 }
 ~~~~~~~~
 
-The component renders just fine, but when you click the button, you see `undefined` in your developer console log. This is one of the main sources of bugs developers encounter in React. If you want to access `this.state` in your class method, it cannot be retrieved because `this` is `undefined`. To make `this` accessible in your class methods, you have to bind the class methods to `this`.
+Thành phần trả về hoàn toàn ổn, nhưng bạn click vào nút, bạn thấy `undefined` console log nhà phát triển của bạn. Đây là một trong những nguồn chính của lỗi mà các nhà phát triển gặp phải trong React. Nếu bạn muốn truy cập `this.state` trong phương thức lớp, Nó không thể nhận được bởi `this` là `undefined`. để làm cho `this` có thể truy cập được trong phương thức lớp của bạn, bạn phải gắn phương thức lớp vào `this`.
 
-In the following class component the class method is properly bound in the class constructor:
+Trong phương thức lớp của thành phần lớp dưới đây được gắn chính xác trong hàm sinh của lớp:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~~
@@ -436,7 +436,7 @@ class ExplainBindingsComponent extends Component {
 }
 ~~~~~~~~
 
-Class method binding can happen somewhere else too. For instance, it can happen in the `render()` class method:
+Việc gắn phương thức lớp có thể xảy ra đâu đó nữa. Ví dụ, nó có thể xảy ra trong phương thức lớp `render()`:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~~
@@ -460,9 +460,9 @@ class ExplainBindingsComponent extends Component {
 }
 ~~~~~~~~
 
-Avoid this practice, however, because it binds the class method every time the `render()` method runs, meaning every time the component updates, which will hurt your application's performance eventually. Binding the class method in the constructor need only be done once, when the component is instantiated.
+Để tránh thói quen này, tuy nhiên, bởi vì nó được gắn với phương thức lớp mỗi lần phương thức `render()` chạy, nghĩa là mỗi lần chạy thành phần sẽ cập nhật, thứ mà cuối cùng sẽ làm giảm hiệu suất của ứng dụng của bạn. Gắn phương thức lớp trong hàm khởi tạo cần được làm duy nhất một lần, khi thành phần được khởi tạo.
 
-Some developers will define the business logic of their class methods in the constructor:
+Một số nhà phát triển sẽ định nghĩa logic kinh doanh của những phương thức lớp trong hàm khởi tạo:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~~
@@ -490,7 +490,7 @@ class ExplainBindingsComponent extends Component {
 }
 ~~~~~~~~
 
-Avoid this approach as well, as it will clutter your constructor over time. The constructor is only there to instantiate your class with all its properties, so the business logic of class methods should be defined outside the constructor.
+Tránh cách tiếp cận này, bởi lẽ nó sẽ làm hàm khởi tạo của bạn lộn xộn dần lên. Hàm khởi tạo chỉ ở đó để khởi tạo lớp của bạn với những thuộc tính của nó, vậy nên logic kinh doanh của phương thức lớp nên được định nghĩa bên ngoài hàm khởi tạo.
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~~
@@ -514,7 +514,7 @@ class ExplainBindingsComponent extends Component {
 }
 ~~~~~~~~
 
-Class methods can be auto-bound using JavaScript ES6 arrow functions:
+Phương thức lớp có thể được gắn tự động sử dụng hàm mũi tên JavaScript:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~~
@@ -536,16 +536,16 @@ class ExplainBindingsComponent extends Component {
 }
 ~~~~~~~~
 
-Use this method if the repetitive binding in the constructor annoys you. The official React documentation sticks to the class method bindings in the constructor, so this book will stick with those as well.
+Sử dụng phương pháp này nếu lặp lại việc gắn trong hàm khởi tạo làm phiền bạn. Tài liệu chính thức của React đi liền với phương pháp gắn phương thức lớp trong hàm khởi tạo, vậy nên cuốn sách này sẽ gắn liền với phương pháp này.
 
-### Exercises:
+### Luyện tập:
 
-* Try different approaches of bindings and console log the `this` object
-* Learn more about [an alternative React component syntax](https://github.com/the-road-to-learn-react/react-alternative-class-component-syntax)
+* Thử cách tiếp cận khác của việc gắn và console log đối tượng `this`
+* Tìm hiểu thêm về [an alternative React component syntax](https://github.com/the-road-to-learn-react/react-alternative-class-component-syntax)
 
-## Event Handler
+## Xử lý sự kiện
 
-Now we'll cover event handlers in elements. In your application, you are using the following button element to dismiss an item from the list.
+Bây giờ chúng ta sẽ nói về xử lý sự kiện trong phần tử. Trong ứng dụng của bạn, bạn đang sử dụng những phần tử nút dưới đây để xóa sản phẩm trong danh sách.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -561,7 +561,7 @@ Now we'll cover event handlers in elements. In your application, you are using t
 ...
 ~~~~~~~~
 
-This function is already complex, because it passes a value to the class method and has to wrap it in another (arrow) function. Essentially, it has to be a function that is passed to the event handler. The following code wouldn't work, because the class method would be executed immediately when you open the application in the browser:
+Hàm này đã phức tạp rồi, bởi vì nó truyền giá trị vào phương thức lớp và cần bọc nó trong một hàm mũi tên. Cần thiết, nó phải là hàm mà được truyền vào xử lý sự kiện. Mã lệnh dưới đây sẽ không hoạt động, bởi vì phương thức lớp sẽ thực hiện ngay lập tức khi bạn mở ứng dụng trong trình duyệt:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -577,9 +577,9 @@ This function is already complex, because it passes a value to the class method 
 ...
 ~~~~~~~~
 
-When using `onClick={doSomething()}`, the `doSomething()` function executes immediately when the application is opened in a browser. The expression in the handler is evaluated. Since the returned value of the function isn't a function anymore, nothing would happen when you click the button. But using `onClick={doSomething}` where `doSomething` is a function, it would only be executed if the button is clicked. The same rules apply for the `onDismiss()` class method.
+Khi sử dụng `onClick={doSomething()}`, hàm `doSomething()` thực hiện ngay lập tức khi ứng dụng được mở trong trình duyệt. Biểu thức trong hàm xử lý được thực hiện. Bởi vì giá trị trả về của hàm không còn là một hàm nữa, nên sẽ không có gì xảy ra khi bạn click nút. Nhưng sử dụng `onClick={doSomething}` nơi mà `doSomething` là một hàm, nó sẽ chỉ được thực hiện nếu nút được click. Quy luật tương đương được áp dụng cho phương thức `onDismiss()`.
 
-However, using `onClick={this.onDismiss}` wouldn't suffice, because the `item.objectID` property needs to be passed to the class method to identify the item that should be dismissed. We wrap it into another function to sneak in the property. This concept is called higher-order functions in JavaScript, which we will cover briefly later.
+Tuy nhiên, sử dụng `onClick={this.onDismiss}` là không đủ, bởi vì thuộc tính `item.objectID` cần phải được truyền vào phương thức lớp để xác định sản phẩm sẽ được sẽ. chúng ta bọc nó vào một hàm khác để giấu thuộc tính. Khái niệm này được gọi là higher-order functions trong JavaScript, thứ mà chúng ta sẽ giới thiệu ngắn gọn lát nữa.
 
 
 {title="src/App.js",lang="javascript"}
@@ -596,7 +596,7 @@ However, using `onClick={this.onDismiss}` wouldn't suffice, because the `item.ob
 ...
 ~~~~~~~~
 
-We can also define wrapping function outside the method, to pass only the defined function to the handler. Since it needs access to the individual item, it has to live inside the map function block.
+Chúng ta cũng có thể định nghĩa hàm bọc lấy bên ngoài phương thức, để truyền duy nhất hàm được định nghĩa vào hàm xử lý. Bởi vì nó cần truy cập vào từng sản phẩm cụ thể, nó cần phải tồn taiji bên trong hàm map.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -641,7 +641,7 @@ class App extends Component {
 }
 ~~~~~~~~
 
-A function has to be passed to the element's handler. As an example, try this code instead:
+Một hàm cần được truyền vào xử lý của phần tử. như ví dụ, thử mã lệnh sau thay thế:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -672,7 +672,7 @@ class App extends Component {
 }
 ~~~~~~~~
 
-This method will run when you open the application in the browser, but not when you click the button. The following code would only run when you click the button, a function that is executed when you trigger the handler:
+Phương thức này sẽ chạy mỗi khi bạn mở ứng dụng trong trình duyệt, nhưng sẽ không khi bạn click nút. Mã lệnh dưới đây sẽ chỉ chạy khi bạn click nút, một hàm mà nó được thực thi khi bạn kích hoạt hàm xử lý:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -692,7 +692,7 @@ This method will run when you open the application in the browser, but not when 
 ...
 ~~~~~~~~
 
-**Remember:** You can transform functions into a JavaScript ES6 arrow function, just as we did with the `onDismiss()` class method:
+**Ghi nhớ:** Bạn có thể chuyển hàm thành hàm mũi tên JavaScript ES6, chỉ khi chúng ta thực hiện với phương thức lớp `onDismiss()`:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -710,7 +710,7 @@ This method will run when you open the application in the browser, but not when 
 ...
 ~~~~~~~~
 
-Newcomers to React often have difficulty using functions in event handlers, so don't get discouraged if you have trouble on the first pass. You should end up with an inlined JavaScript ES6 arrow function with access to the `objectID` property of the `item` object:
+Những người mới tiếp cận React thường có khó khăn trong việc sử dụng hàm trong hàm xử lý sự kiện, vậy nên đường lùi bước nếu bạn gặp khó khăn lần đầu. Bạn nên quen với việc sử dụng hàm mũi tên 1 dòng JavaScript với truy cập vào thuộc tính `objectID` của đối tượng `item`:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -741,17 +741,17 @@ class App extends Component {
 }
 ~~~~~~~~
 
-Using arrow functions in event handlers directly impacts your application's performance. For instance, the `onClick` handler for the `onDismiss()` method wraps the method in another arrow function to pass the item identifier. Every time the `render()` method runs, the handler instantiates the higher-order arrow function. It can have an impact on your application performance, but in most cases you won't notice. If you have a huge table of data with 1000 items and each row or column has an arrow function in an event handler, it is worth thinking about the performance implications, so you could implement a dedicated Button component to bind the method in the constructor. Before that, though, it is premature optimization, and it is more prudent learn the basics of React before thinking about optimization.
+Sử dụng hàm mũi tên trong hàm xử lý sự kiện trực tiếp ảnh hưởng đến hiệu suất ứng dụng của bạn. Ví dụ, hàm xử lý  `onClick` cho phương thức `onDismiss()` bọc phương thức trong một hàm mũi tên khác để truyền id sản phẩm. Mỗi khi phương thức `render()` chạy, hàm xử lý khởi tạo hàm mũi tên bậc cao. Nó có thể gây ảnh hưởng đến hiệu suất ứng dụng của bạn, nhưng trong hầu hết mọi trường hợp bạ sẽ không nhận ra. Nếu bạn có một cái bảng dữ liệu lớn với  1000 sản phẩm và mỗi dòng hoặc cột có một hàm mũi tên trong hàm xử lý sự kiện, Hãy suy nghĩ về hiệu suất của ứng dụng, vậy nên bạn có thể triển khai một thành phần Button ứng cử viên để gắn phương thức trong hàm khởi tạo. Trước đó, mặc dù, nó là một tối ưu hóa sớm, và khôn ngoan hơn khi học cơ bản của React trước khi quan tâm về tối ưu hóa.
 
-### Exercises:
+### Luyện tập:
 
-* Try the different approaches of using functions in the `onClick` handler of your button
+* Thử những cách tiếp cận khác sử dụng hàm trong hàm xử lý `onClick` của nút của bạn
 
-## Interactions with Forms and Events
+## Tương tác với Forms và Events
 
-We'll add another interaction to see forms and events in React, a search functionality where the input the search field temporarily filters a list based on the title property of an item.
+Chúng ta sẽ thêm một tương tác khác để tìm hiểu về forms và events trong React, một chức năng tìm kiếm nơi mà nhập vào vùng tìm kiếm sẽ tạm thời lọc danh sách dựa trên thuộc tính title của sản phẩm.
 
-In the first step, we define a form with an input field in JSX:
+Đầu tiên, chúng ta định nghĩa form với một trường nhập trong JSX:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -776,9 +776,9 @@ class App extends Component {
 }
 ~~~~~~~~
 
-In the following scenario you will type into the input field and filter the list temporarily by the search term that is used in the input field. To filter the list based on the value of the input field, we store the value of the input field in the local state. We use **synthetic events** in React to access a value in an event payload.
+Trong trường hợp dưỡi đây bạn sẽ gõ vào trường nhập và lọc danh sách tạm thời bằng khái niệm tìm kiếm được sử dụng trong trường nhập. Để lọc danh sách dựa trên giá trị của trường nhập, chúng ta lưu giá trị của trường nhập trong tráng thái cục bộ. Chúng ta sử dụng **synthetic events** trong React để truy cập giá trị trong event payload.
 
-Let's define a `onChange` handler for the input field:
+Hãy cùng định nghĩa hàm xử lý `onChange` cho trường nhập:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -804,7 +804,7 @@ class App extends Component {
 }
 ~~~~~~~~
 
-The function is bound to the component, so it is a class method again. You just need to bind and define the method:
+Hàm này được gắn với thành phần, nên một lần nữa nó chính là phương thức. Bạn chỉ cần gắn và định nghĩa phương thức
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -833,7 +833,7 @@ class App extends Component {
 }
 ~~~~~~~~
 
-When using a handler in your element, you get access to the synthetic React event in your callback function's signature.
+Khi sử dụng một hàm xử lý trong thành phần, bạn truy cập vào synthetic React event trong giá trị hàm callback.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -851,7 +851,7 @@ class App extends Component {
 }
 ~~~~~~~~
 
-The event has the value of the input field in its target object, so you can update the local state with a search term using `this.setState()`.
+Event có giá trị của trường nhập trong đối tượng target của nó, từ đó bạn có thể cập nhật trạng thái cục bộ với khái niệm search sử dụng `this.setState()`.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -869,7 +869,7 @@ class App extends Component {
 }
 ~~~~~~~~
 
-Don't forget to define the initial state for the `searchTerm` property in the constructor. The input field should be empty in the beginning, so its value is an empty string.
+Đừng quên việc định nghĩa trạng thái khởi tạo cho thuộc tính `searchTerm` trong hàm sinh. Trường nhập nên được bỏ trống lúc đầu, vậy cho giá trị của nó là một chuỗi rỗng.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -893,11 +893,11 @@ class App extends Component {
 }
 ~~~~~~~~
 
-We store the input value to the local state every time the value in the input field changes.
+Chúng ta lưu giá trị nhập vào trạng thái cục bộ mỗi lần giá trị của trường nhập thay đổi.
 
-We can assume that when we update `searchTerm` with `this.setState()`, the list also needs to be passed to preserve it. React's `this.setState()` is a shallow merge, however, so it preserves the sibling properties in the state object when it updates a property. The list state, though you have already dismissed an item from it, stays the same when updating the `searchTerm` property.
+Chúng ta có thể giá sử rằng khi ta cập nhật `searchTerm` với `this.setState()`, danh sách cũng cần được truyền để bảo toàn nó. `this.setState()` của React là một shallow merge, tuy nhiên, nó sẽ bảo toàn thuộc tính kề trong đối tượng trạng thái khi nó cập nhật thuộc tính. Trạng thái danh sánh, mặc dù bạn đã xóa phần tử khỏi nó, nó vẫn giữ nguyên khi cập nhật thuộc tính `searchTerm`.
 
-Returning to the application, we see the list isn't filtered yet, based on the input field value stored in the local state. We need to filter the list temporarily based on the `searchTerm`, and we have everything we need to perform this operation. In the `render()` method, before mapping over the list, we apply a filter to it. The filter will only evaluate if the `searchTerm` matches the title property of the item. We've already used the built-in JavaScript filter functionality, so let's use it again to sneak in the filter function before the map function. The filter function returns a new array, so the map function can be used on it.
+Quay trở lại ứng dụng, để kiểm tra xem danh sách đã được lọc hay chưa, dựa trên giá trị được lưu trữ của trường nhập trong trang thái cục bộ. Chúng ta cần lọc danh sách tạm thời dựa trên `searchTerm`, và chúng ta có tất cả mọi thứ chúng ta cần để thực hiện thao tác này. Trong phương thức `render()`, trước khi biến đổi qua danh sách, chúng ta áp dụng lọc cho nó. Hàm lọc sẽ chỉ xác định nếu `searchTerm` trùng với thuộc tính title của sản phẩm. Chúng ta đã sử dụng hàm filter có sẵn trong JavaScript, nào hãy cùng sử dụng nó một lần nữa để lọc danh sách trước khi biến đổi nó. Hàm lọc sẽ trả về một mảng mới, để cho hàm biến đổi có thể sử dụng nó.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -925,11 +925,11 @@ class App extends Component {
 }
 ~~~~~~~~
 
-Let's approach the filter function in a different way this time. We want to define the filter argument, which is the function passed to the filter function outside the ES6 class component. We don't have access to the state of the component, so we have no access to the `searchTerm` property to evaluate the filter condition. This means we'll need to pass the `searchTerm` to the filter function, returning a new function to evaluate the condition. This is called a higher-order function.
+Hãy cùng tiếp cận hàm lọc theo một cách khác lần này. Chúng ta muốn định nghĩa tham số lọc, thứ mà là hàm truyền cho hàm lọc bên ngoài thành phần lớp ES6. Chúng ta không thể truy cập vào trạng thái của thành phần, nên chúng ta không thể truy cập vào thuộc tính `searchTerm` để xác định điều kiện lọc. Điều này có nghĩa là chúng ta sẽ cần truyền `searchTerm` vào hàm lọc, trả về hàm mới để xác định điều kiện. Đây được gọi là hàm bậc cao.
 
-It makes sense to know about higher-order functions, because React deals with a concept called higher-order components. You will get to know the concept later in the book. Now again, let's focus on the filter functionality.
+Bạn nên biết về hàm bậc cao, bởi lẽ React làm việc với khái niệm gọi là thành phần bậc cao. Bạn sẽ bắt đầu tìm hiểu khái niệm này lát nữa trong quyển sách này. Bây giờ thì, hãy tập trung vào chức năng của hàm lọc.
 
-First, you have to define the higher-order function outside of your App component.
+Trước tiên, bạn phải định nghĩa hàm bậc cao bên ngoài thành phần App của bạn.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -948,9 +948,9 @@ class App extends Component {
 }
 ~~~~~~~~
 
-The function takes the `searchTerm` and returns another function, because the filter function only takes that type as its input. The returned function has access to the item object, because it is the one passed to the filter function.
+Hàm này nhận vào `searchTerm` và trả về một hàm khác, bởi vì hàm lọc chỉ nhận kiểu đó cho đầu vào của nó. Hàm trả về truy cập vào đối tượng sản phẩm, bởi vì nó là thứ được truyền vào hàm lọc.
 
-It will also be used to filter the list based on the condition defined in the function, so let's define the condition:
+Nó cũng được sử dụng để lọc danh sách dựa trên điều kiện được định nghĩa trong hàm, hãy cùng nhau định nghĩa điều kiện:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -969,9 +969,9 @@ class App extends Component {
 }
 ~~~~~~~~
 
-The condition matches the incoming `searchTerm` pattern with the title property of the item from your list. You can do that with the built-in `includes` JavaScript functionality. When the pattern matches, it returns true and the item stays in the list; when the pattern doesn't match, the item is removed from the list. Don't forget to match the capitalizion on both strings to the letter, as there will be mismatches between the search term 'redux' and an item title 'Redux'. Since we are working on a immutable list and return a new list by using the filter function, the original list in the local state isn't modified at all.
+Điều kiện trùng với kiểu của `searchTerm` đến với thuộc tính title của sản phẩm từ danh sách của bạn. Bạn có thể thực hiện nó với hàm `includes` có sẵn của JavaScript. Khi kiểu phù hợp, nó trả về true và những sản phẩm giữ nguyên trong danh sách; khi kiểu không khớp, sản phẩm sẽ bị xóa khỏi danh sách. Đừng quên để việc khớp viết hoa trong cả hai chuỗi của chữ, bởi sẽ có sự không khớp giữa 'redux' và title sản phẩm 'Redux'. Bởi vì chúng ta đang làm việc với danh sách bất biến và trả về danh sách mới bằng cách sử dụng hàm lọc, danh sách ban đầu trong biến cục bộ sẽ không thay đổi.
 
-We cheated a bit using JavaScript ES7 features, but these aren't present in ES5. For ES5, use the `indexOf()` function to get the index of the item in the list instead. When the item is in the list, `indexOf()` will return its index in the array.
+Chúng ta đã sử dụng tính năng JavaScript ES7, nhưng chưa hề có trong ES5. Dành cho ES5, sử dụng hàm `indexOf()` để lấy được index của sản phẩm trong danh sách. Khi một sản phẩm trong sách dánh, `indexOf()` sẽ trả về index của nó trong mảng.
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~~
@@ -982,7 +982,7 @@ string.indexOf(pattern) !== -1
 string.includes(pattern)
 ~~~~~~~~
 
-Another neat refactoring can be done with an ES6 arrow function again. It makes the function more concise:
+Một cách tối giản hóa có thể đạt được với hàm mũi tên ES6 lần nữa. Nó giúp cho hàm được ngắn gọn hơn:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~~
@@ -998,9 +998,9 @@ const isSearched = searchTerm => item =>
   item.title.toLowerCase().includes(searchTerm.toLowerCase());
 ~~~~~~~~
 
-The React ecosystem uses a lot of functional programming concepts, often using functions that return functions (the concept is called high-order functions) to pass information. JavaScript ES6 lets us express these even more concisely with arrow functions.
+Hệ sinh thái React sử dụng rất nhiều khái niệm của lập trình hàm, thường sử dụng một hàm mà trả lại hàm (khái niệm này là hàm bậc cao) để truyền thông tin. JavaScript ES6 giúp chúng ta biểu diễn những thứ này thậm chí ngắn gọn hơn với hàm mũi tên.
 
-Last but not least, use the defined `isSearched()` function to filter lists. We pass it the `searchTerm` property from the local state, so that it returns the filter's input function and filters your list based on the filter condition. After that it maps over the filtered list to display an element for each list item.
+Cuối cùng, sử dụng hàm được định nghĩa `isSearched()` để lọc danh sách. Chúng ta truyền cho nó thuộc tính `searchTerm` từ biến cục bộ, vì vậy nó sẽ trả về hàm lọc của hàm và lọc danh sách của bạn dựa trên điều kiện lọc. Sau đó nó sẽ biến đổi danh sách đã được lọc để hiện thị từng phần tử cho mỗi sản phẩm của danh sách.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -1028,16 +1028,16 @@ class App extends Component {
 }
 ~~~~~~~~
 
-The search functionality should work now. Try it yourself in the browser.
+Chúc năng tìm kiếm giờ sẽ hoạt động. Hãy tự kiểm tra nó trên trình duyệt.
 
-### Exercises:
+### Luyện tập:
 
-* Read about [React events](https://reactjs.org/docs/handling-events.html)
-* Read about [higher-order functions](https://en.wikipedia.org/wiki/Higher-order_function)
+* Đọc thêm [React events](https://reactjs.org/docs/handling-events.html)
+* Đọc thêm [higher-order functions](https://en.wikipedia.org/wiki/Higher-order_function)
 
 ## ES6 Destructuring
 
-Destructuring in JavaScript ES6 provides easier access to properties in objects and arrays. Compare the following snippet in JavaScript ES5 and ES6:
+Destructuring trong JavaScript ES6 cung cấp một cách truy cập dễ dàng hơn vào thuộc tính trong đối tượng và mảng. So sánh đoạn dưới đây trong JavaScript ES5 và ES6:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~~
@@ -1060,7 +1060,7 @@ console.log(firstname + ' ' + lastname);
 // output: Robin Wieruch
 ~~~~~~~~
 
-While we add an extra line each time we access an object property in JavaScript ES5, it takes just one line in JavaScript ES6. For readability, use multilines when you destructure an object into multiple properties.
+Trong khi chúng ta thêm vào 1 dòng mỗi lần chúng ta truy cập thuộc tính của đối tượng trong in JavaScript ES5, Nó chỉ mất một dòng trong JavaScript ES6. Để dễ đọc, sử dụng nhiều dòng khi bạn destructure một đối tượng thành nhiều thuộc tính.
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~~
@@ -1070,7 +1070,7 @@ const {
 } = user;
 ~~~~~~~~
 
-The same concept applies to arrays. You can destructure them, too, again using multilines to keep your code scannable and readable.
+Cùng một khái niệm được áp dụng cho mảng. Bạn có thể destructure chúng, một lần nữa sử dụng nhiều dòng để giúp mã lệnh của bạn dễ đọc hơn.
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~~
@@ -1085,7 +1085,7 @@ console.log(userOne, userTwo, userThree);
 // output: Robin Andrew Dan
 ~~~~~~~~
 
-Note that the local state object in the App component can get destructured the same way. You can shorten the filter and map line of code.
+Chú ý rằng đối tượng trạng thái cục bộ trong thành phần App có thể được destructure như trên. Bạn có thể ngắn gọn hàm lọc và hàm biến đổi.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -1105,7 +1105,7 @@ Note that the local state object in the App component can get destructured the s
     );
 ~~~~~~~~
 
-You can do it the ES5 or ES6 way:
+Bạn có thể thực hiện với ES5 hoặc ES6:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~~
@@ -1117,19 +1117,19 @@ var list = this.state.list;
 const { searchTerm, list } = this.state;
 ~~~~~~~~
 
-But since the book uses JavaScript ES6 most of the time, you should stick to it.
+Nhưng bởi vì quyển sách này hầu như sử dụng JavaScript ES6, bạn nên quen với nó.
 
-### Exercises:
+### Luyện tập:
 
-* Read about [ES6 destructuring](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+* Đọc thêm [ES6 destructuring](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 
 ## Controlled Components
 
-We covered unidirectional data flows before, and the same law applies for the input field, which updates the local state with the `searchTerm` to filter the list. When the state changes, the `render()` method runs again and uses the recent `searchTerm` from the local state to apply the filter condition.
+Chúng ta đã tìm hiểu về dòng dữ liệu vô hướng trước đây, cùng một quy tắc áp dụng cho trường nhập, thứ mà cập nhật trạng thái cục bộ với `searchTerm` để lọc danh sách. Khi trạng thái thay đổi, phương thức `render()` chạy lại và sử dụng `searchTerm` gần nhất từ trạng thái cục bộ để áp dụng điều kiện lọc.
 
-But didn't we forget something in the input element? An HTML input tag comes with a `value` attribute. The value attribute usually contains the value shown in the input field. In this case, that is the `searchTerm` property. Form elements such as `<input>`, `<textarea>`, and `<select>` hold their own state in plain HTML. They modify the value internally once someone changes it from the outside. In React, that's called an **uncontrolled component**, because it handles its own state. We want to make sure those elements are **controlled components** instead.
+Nhưng liệu chúng ta có quên gì đó trong thành phần nhập? Một thẻ nhập HTML đi cùng với thuộc tính `value`. Thuộc tính value thường chứa giá trị được hiển thị trong trường nhập. Trong trường hợp này, đó là thuộc tính `searchTerm`. Thành phần form như `<input>`, `<textarea>`, và `<select>` giữ trạng thái của chúng trong HTML thuần. chúng chỉnh sửa giá trị bên trong mỗi khi có ai thay đổi nó từ bên ngoài. Trong React, đó được gọi là 1 **uncontrolled component**, bởi vì nó xử lý trạng thái của riêng nó. Chúng ta muốn chắc chắn thay thế bằng những phần tử này là **controlled components**.
 
-To do this, we set the value attribute of the input field, which is already saved in the `searchTerm` state property, so we can access it from there:
+Để làm vậy, chúng ta thiết lập thuộc tính giá trị của trường nhập, thứ mà đã được lưu trong thuộc tính trạng thái `searchTerm` , vậy nên chúng ta có thể truy cập nó từ đó:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -1157,18 +1157,18 @@ class App extends Component {
 }
 ~~~~~~~~
 
-The unidirectional data flow loop for the input field is self-contained, and the local component state is the single source of truth for the input field.
+Dòng chảy dữ liệu vô hướng lặp lại cho trường nhập được tự chứa chính nó, và trạng thái thành phần cục bộ là nguồn duy nhất cho trường nhập.
 
-Local state management and unidirectional data flow might be new to you, but once you adjust to it, it will likely become your natural flow of React implementation. React brings novel patterns with unidirectional data flow, which have been adopted by several frameworks and libraries which create single page applications.
+Quản lý trạng thái cục bộ và dòng chảy dữ liệu vô hướng có thể mới với bạn, nhưng một khi bạn điều chỉnh để phù hợp với nó, nó sẽ trở thành dòng chảy tự nhiên nhất của việc triển khai React. React mang khuôn mẫu tiểu thuyết với dòng chảy dữ liệu vô hướng, thứ mà đã được một vài frameworks và thư viện dùng để tạo ra ứng dụng trang đơn.
 
-### Exercises:
+### Luyện tập:
 
-* Read about [React forms](https://reactjs.org/docs/forms.html)
-* Learn more about [different controlled components](https://github.com/the-road-to-learn-react/react-controlled-components-examples)
+* Đọc thêm [React forms](https://reactjs.org/docs/forms.html)
+* Tìm hiểu về [different controlled components](https://github.com/the-road-to-learn-react/react-controlled-components-examples)
 
-## Split Up Components
+## Chia nhỏ thành phần
 
-Now we have one large App component that keeps growing and may eventually become too complex to manage efficiently. We need to split it into smaller, more manageable parts by creating separate components for search input and the items list.
+Bây giờ chúng ta đã có một ứng dụng App component lớn và tiếp tục phát triển và có thể cuối cùng trở nên quá phức tạp để quản lý hiệu quả. Chúng ta cần chia nó ra nhỏ hơn, nhiều phần dễ quản lý hơn bằng cách tạo ra những thành phần tách biệt cho phần nhập tìm kiếm và danh sách sản phẩm.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -1190,7 +1190,7 @@ class App extends Component {
 }
 ~~~~~~~~
 
-We pass the components properties that they can use themselves. The App component needs to pass the properties managed in the local state and its class methods.
+Chúng ta truyền thuộc tính của thành phần mà chúng có thể sử dụng chính chúng. Thành phần App cần truyền những thuộc tính đã được quản lý trong trạng thái cục bộ và phương thức lớp của nó.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -1219,9 +1219,9 @@ class App extends Component {
 }
 ~~~~~~~~
 
-Now we define the components next to the App component, which will be done using JavaScript ES6 by using classes. They render the same elements as before.
+Giờ thì chúng ta định nghĩa thành phần bên cạnh thành phần App, thứ mà sẽ được thực hiện với JavaScript ES6 sử dụng lớp. Chúng ta trả về những phần tử tương tự như trước.
 
-The first one is the Search component:
+Đầu tiên là thành phần Search:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -1247,7 +1247,7 @@ class Search extends Component {
 # leanpub-end-insert
 ~~~~~~~~
 
-The second one is the Table component.
+Tiếp theo là thành phần Table.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -1284,17 +1284,17 @@ class Table extends Component {
 # leanpub-end-insert
 ~~~~~~~~
 
-Now you have three ES6 class components. Notice the `props` object is accessible via the class instance by using `this`. Props, short for properties, have all the values passed to the components when we used App component. That way, components can pass properties down the component tree.
+Và giờ bạn có 3 thành phần lớp ES6. Chú ý rằng đối tượng `props` có thể truy cập được qua khởi tạo của lớp sử dụng `this`. Props, viết tắt cho thuộc tính (properties), có đầy đủ những giá trị được truyền vào thành phần khi chúng ta sử dụng thành phần App. Bằng cách đó, thành phần có thể truyền những thuộc tính xuống cây thành phần.
 
-By extracting these components from the App component, they become reusable. Since components get their values using the `props` object, you can pass different props to your components every time you use them somewhere else.
+Bằng cách tách những thành phần này ra khỏi thành phần App, chúng trở nên dễ dàng tái sử dụng. Bởi vì những thành phần nhận giá trị của chúng sử dụng đối tượng `props`, bạn có thể truyền vào những props khác nhau vào thành phần của bạn mỗi lần bạn sử dụng ở đâu đó khác.
 
-### Exercises:
+### Luyện tập:
 
-* Discover more components that can be split up like the Search and Table components, but wait until we've covered more of its concepts before you implement any of them.
+* Tìm hiểu thêm về thành phần mà có thể chia nhỏ được như Search và Table, nhưng đợi đến khi chúng ta sẽ tìm hiểu nhiều hơn về khái niệm của nó trước khi bạn triển khai bất kì thứ gì.
 
-## Composable Components
+## Thành phần có thể kết hợp được
 
-The `children` prop is used to pass elements to components from above, which are unknown to the component itself but make it possible to compose components together. We'll see how this looks when you pass a text string as a child to the Search component.
+Thuộc tính `children` được dùng để truyền những phần tử vào thành phần từ phía trên, những thứ mà không rõ với bản thân thành phần nhưng có thể làm nó có thể kết hợp những thành phần cùng nhau. Chúng ta sẽ xem nó trông như thế nào khi bạn truyền một chuỗi văn bản như một đứa con vào thành phần Search.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -1325,7 +1325,7 @@ class App extends Component {
 }
 ~~~~~~~~
 
-Now the Search component can destructure the `children` property from the `props` object, and specify where it should be displayed.
+Giờ thì thành phần Search component có thể destructure thuộc tính `children` từ đối tượng `props`, và xác định nơi mà nó nên được hiển thị.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -1349,17 +1349,17 @@ class Search extends Component {
 }
 ~~~~~~~~
 
-The "Search" text should now be visible next to your input field. When you use the Search component elsewhere, you can use different entities, since it's not just text that can be passed as children. You can also pass an element, or element trees that can be encapsulated by components, as children. The children property makes it possible to weave components into each other.
+Văn bản "Search" nên được hiển thị cạnh trường nhập của bạn. Khi bạn sử dụng thành phần Search component ở nơi khác, bạn có thể sử dụng những thực thế khác nhau, bởi vì nó không chỉ là văn bản có thể truyền như con. Bạn có thể truyền một phần tử, hoặc một cây phần tử có thể được đóng gói bởi thành phần, như những đứa con. Thuộc tính children giúp cho nó có thể kết nối các thành lại với nhau.
 
-### Exercises:
+### Luyện tập:
 
-* Read about [the composition model of React](https://reactjs.org/docs/composition-vs-inheritance.html)
+* Đọc thêm [the composition model of React](https://reactjs.org/docs/composition-vs-inheritance.html)
 
-## Reusable Components
+## Thành phần tái sử dụng
 
-Reusable and composable components empower you to come up with capable component hierarchies, the foundation of React's view layer. The last sections mentioned reusability, and now we can see how reusing the Table and Search components works in our case. Even the App component is reusable, as it can be instantiated elsewhere as well.
+Tái sử dụng và kết hợp thành phần tăng sức mạnh cho bạn với khả năng của cây thành phần, nền tảng của lớp hiển thị của React. Phần cuối cùng đề cập đến tính tái sử dụng, và giờ thì chúng ta sẽ xem làm thế nào để việc tái sử dụng thành phần Table và Search hoạt động trong trường hợp của ta. Ngay cả thành phần App cũng có thể tái sử dụng được, khi nó có thể được khởi tạo ở nơi nào đó khác nữa.
 
-Let's define one more reusable component, a Button component which we'll eventually reuse often:
+Hãy cùng định nghĩa một thành phần tái sử dụng nữa, một thành phần Button mà chúng ta sẽ cùng tái sử dụng thường xuyên:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -1384,9 +1384,9 @@ class Button extends Component {
 }
 ~~~~~~~~
 
-It might seem redundant to declare components like this, but it's not. We use a `Button` component instead of a `button` element, which spares only the `type="button"`. It might not seem like a huge win, but these measures are about long term, however. Imagine you have several buttons in your application, and you want to change an attribute, style, or behavior for just one. Without the component, you'd have to change (refactor) each one. The Button component ensures that the operation has a single source of truth, or one Button to refactor all the others at once.
+Khai báo thành phần như này có vẻ thừa thãi, nhưng thực ra không hề. Chúng ta sử dụng thành phần `Button` thay vì một phần tử `button`, thứ mà chỉ bổ sung thêm `type="button"`. Có vẻ như đây không phải một bước tiến lớn, nhưng những việc này dành cho quá trình lâu dài, tuy nhiên. Tưởng tượng bạn có vài nút trong ứng dụng của bạn, và bạn muốn thay đổi thuộc tính, style, hay hành vi cho chỉ một nút. Nếu không dùng thành phần, bạn sẽ phải thay đổi (sửa lại) từng cái một. Thành phần Button đảm bảo rằng quá trình này chỉ là duy nhất, hoặc một nút để chỉnh sửa tất cả cùng lúc.
 
-Since you already have a button element, you can use the Button component instead. It omits the type attribute, because the Button component specifies it.
+Bởi vì bạn đã có phần tử nút, bạn có thể sử dụng thành phần Button thay thế. Nó sẽ bỏ đi kiểu thuộc tính, bởi vì thành phần Button component xác định nó.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -1418,7 +1418,7 @@ class Table extends Component {
 }
 ~~~~~~~~
 
-The Button component expects a `className` property in the `props`. The `className` attribute is another React derivate for the HTML attribute class. We didn't pass any `className` when the Button was used, though. It should be more explicit in our Button component that the `className` is optional, so we'll assign a default value in the object destructuring.
+Thành phần Button nhận vào thuộc tính `className` trong `props`. Thuộc tính `className` là một React khác có nguồn gốc từ thuộc tính class HTML. Chúng ta không truyền bất cứ `className` khi Button được sử dụng, mặc dù vậy. Một cách rõ ràng hơn trong thành phần Button `className` là không bắt buộc, bởi vì chúng ta sẽ gán một giá trị mặc định trong đối tượng destructuring.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -1437,25 +1437,25 @@ class Button extends Component {
 }
 ~~~~~~~~
 
-Now, whenever there is no `className` property specified in the Button component, the value will be an empty string instead of `undefined`.
+Giờ thì, mỗi khi thuộc tính `className` không được xác định rõ trong thành phần Button, giá trị sẽ là một chuối rỗng thay vì `undefined`.
 
-### Exercises:
+### Luyện tập:
 
-* Read about [how to pass props in React](https://www.robinwieruch.de/react-pass-props-to-component/)
+* Đọc thêm [how to pass props in React](https://www.robinwieruch.de/react-pass-props-to-component/)
 
-## Component Declarations
+## Khai báo thành phần
 
-Now we have four ES6 class components, but the application can still be improved using functional stateless components as alternative for ES6 class components. Before you refactor your components, let's introduce the different types.
+Hiện giờ chúng ta đã có 4 thành phần lớp ES6, nhưng ứng dụng vẫn có thể được cải thiện thêm bằng những thành phần hàm khuyết trạng thái như là một thay thế cho thành phần lớp ES6. Trước khi bạn chau chuốt lại những thành phần của bạn, hãy cùng giới thiệu những kiểu khác.
 
-* **Functional Stateless Components** are functions that take input and return an output. The inputs are the props, and the output is a component instance in plain JSX. So far, it is quite similar to an ES6 class component. However, functional stateless components are functions (functional) and they have no local state (stateless). You cannot access or update the state with `this.state` or `this.setState()` because there is no `this` object. Additionally, they have no lifecycle methods except for the `render()` method which will be applied implicitly in functional stateless components. You didn't learn about lifecycle methods yet, but you already used two: `constructor()` and `render()`. The constructor runs only once in the lifetime of a component, whereas the `render()` class method runs once in the beginning and every time the component updates. Keep in mind that functional stateless components have no lifecycle methods, when we arrive at lifecycle methods chapter later.
+* **Thành phần hàm vô trạng thái** là những hàm mà nhận dữ liệu vào và trả dữ liệu ra. Dữ liệu vào là props, và dữ liệu ra là một khởi tạo thành phần trong JSX thuần. Đến đây, nó khá giống với thành phần lớp ES6. Tuy nhiên, thành phần hàm vô trạng thái là những hàm (mang tính chất hàm) và chúng không có trạng thái cục bộ (vô trạng thái). Bạn không thể truy cập hay cập nhật trạng thái với `this.state` hay `this.setState()` bởi không hề có đối tượng `this` nào. Thêm nữa, chúng không hề có phương thức vòng đời ngoại trừ cho phương thức `render()` mà sẽ được áp dụng ngầm vào thành phần hàm vô trạng thái. Bạn chưa hề học về những phương thức vòng đời, nhưng bạn đã sử dụng hai thứ là: `constructor()` và `render()`. Hàm sinh chạy duy nhất một lần trong vòng đời của thành phần, nơi mà phương thức lớp `render()` chạy một lần lúc đầu và mỗi khi thành phần thay đổi. Hãy ghi nhớ rằng thành phần hàm vô trạng thái không về có phương thức vòng đời, khi mà chúng ta đến với chương về phương thức vòng đời.
 
-* **ES6 Class Components** extend from the React component. The `extend` hooks all the lifecycle methods, available in the React component API, to the component. This is how we were able to use the `render()` class method. You can also store and manipulate state in ES6 class components using `this.state` and `this.setState()`.
+* **Thành phần lớp ES6** kế thừa từ thành phần React. Từ khóa `extend` kết nối các phương thức vòng đời, có sẵn trong API của thành phần React, với thành phần. Đây là lý do vì sao chúng ta có thể sử dụng phương thức lớp `render()`. Bạn cũng có thể lưu trữ và thao tùng trạng thái trong lớp ES6 sử dụng `this.state` và `this.setState()`.
 
-* **React.createClass** was used in older versions of React, and is still used in JavaScript ES5 React applications. But [Facebook declared it as deprecated](https://reactjs.org/blog/2015/03/10/react-v0.13.html) in favor of JavaScript ES6. They even added a [deprecation warning in version 15.5](https://reactjs.org/blog/2017/04/07/react-v15.5.0.html), so we will not use it in the book.
+* **React.createClass** được sử dụng trong phiên bản cũ hơn của React, và vẫn được sử dụng trong ứng dụng  JavaScript ES5 React. Nhưng [Facebook chỉ ra nó đã lỗi thời](https://reactjs.org/blog/2015/03/10/react-v0.13.html) với hương vị JavaScript ES6. Họ thậm chí thêm vào [cảnh báo lỗi thời tại phiên bản 15.5](https://reactjs.org/blog/2017/04/07/react-v15.5.0.html), vậy nên ta sẽ không sử dụng nó trong quyển sách này.
 
-When deciding when to use functional stateless components over ES6 class components, a good rule of thumb is to use functional stateless components when you don't need local state or component lifecycle methods. Usually, we implement components as functional stateless components, but once access to the state or lifecycle methods is required, we have to refactor it to an ES6 class component. We started the other way around in our application for the sake of learning.
+Khi quyết định khi nào sử dụng thành phần hàm vô trạng thái thay vì thành phần lớp ES6, một quy tắc tốt là sử dụng thành phần hàm vô trạng thái khi bạn không cần trạng thái cục bộ hoặc phương thức vòng đời của thành phần. Thường thì, chúng ta triển khai thành phần dưới dạng thành phần hàm vô trạng thái, nhưng một khi truy cập vào trạng thái hoặc phương thức vòng đời cần thiết, chúng ta phải sửa lại nó trở thành thành phần lớp ES6. Chúng ta bắt đầu cách khác xung quanh ứng dụng của ta cho quá trình học.
 
-Returning to the application, we see the App component uses local state, so it has to stay as an ES6 class component. The other three ES6 class components are stateless, so they don't need access to `this.state` or `this.setState()`, and they have no lifecycle methods. We're going to refactor the Search component to a stateless functional component. The Table and Button component refactoring will become your exercise.
+Quay trở lại với úng dụng, chúng ta sẽ thấy thành phần App component sử dụng trạng thái cục bộ, bởi vì nó cần phải giữ nguyên như một thành phần lớp ES6. Bà thành phần lớp ES6 khác là vô trạng thái, vậy chúng không cần truy cập vào `this.state` và `this.setState()`, và chúng không có phương thức vòng đời. Chúng ta sẽ sửa lại thành phần Search để trở thành thành phần hàm vô trạng thái. Thành phần Table và Button cần phải được sửa lại chính là bài luyện tập dành cho bạn.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -1475,7 +1475,7 @@ function Search(props) {
 # leanpub-end-insert
 ~~~~~~~~
 
-The `props` are accessible in the function signature, and the return value is JSX; but we can do more with the code in a functional stateless component using ES6 destructuring. The best practice is to use it in the function signature to destructure the `props`:
+`props` được truy cập trong hàm, và giá trị trả về là JSX; nhưng chúng ta có thể làm nhiều hơn với mã lệnh trên trong thành phần hàm vô trạng thái sử dụng ES6 destructuring. Luyện tập tốt là sử dụng nó trong hàm để  destructure `props`:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -1494,7 +1494,7 @@ function Search({ value, onChange, children }) {
 }
 ~~~~~~~~
 
-Remember that ES6 arrow functions allow you to keep your functions concise and let you remove the block body of the function. In a concise body, an implicit return is attached, letting us remove the `return` statement. Since the functional stateless component is a function, it can be made more concise as well:
+Hãy nhớ rằng hàm mũi tên ES6 cho phép bạn giữ cho hàm của bạn ngắn gọn và để bạn loại bỏ đi thân khối của hàm. Trong một thân ngắn gọn, một trả về ngầm được gắn vào, giúp chúng ta loại bỏ từ khóa `return`. Bởi vì thành phần hàm vô trạng thái là hàm, nó có thể trở nên ngắn gọn hơn nữa như sau:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -1510,7 +1510,7 @@ const Search = ({ value, onChange, children }) =>
 # leanpub-end-insert
 ~~~~~~~~
 
-The last step is especially useful to enforce props as input and JSX as output. Still, you could *do something* in between by using a block body in your ES6 arrow function:
+Một bước cuối cùng là đặc biệt hữu dụng để bắt buộc props như là giá trị nhập vào và JSX như giá trị trả về. Vẫn vậy, bạn có thể  *làm gì đó* ở giữa bằng cách sử dụng thân khối trong hàm mũi tên ES6 của bạn:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~~
@@ -1530,18 +1530,18 @@ const Search = ({ value, onChange, children }) => {
 }
 ~~~~~~~~
 
-Now you have one lightweight functional stateless component. When we need access to the local component state or lifecycle methods, we can refactor it to a ES6 class component. When using block bodies, programmers tend to make their functions more complex, but leaving the block body out lets you focus on the input and output. JavaScript ES6 in React components makes components more readable and elegant.
+Hiện giờ bạn có thể có một thành phần hàm vô trạng thái nhẹ. khi bạn cần truy cập vào trạng thái cục bộ hoặc phương thức vòng đời, chúng ta có thể thay đổi nó thành thành phần lớp ES6. Khi sử dụng những thân khối, lập trình viện có ý định làm hàm của họ trở nên phức tạp hơn, nhưng việc bỏ đi thân khối giúp bạn tập trung vào đầu vào và đầu ra. JavaScript ES6 trong thành phần React làm cho thành phần dễ đọc và sạch đẹp hơn .
 
-### Exercises:
+### Luyện tập:
 
-* Refactor the Table and Button component to stateless functional components
-* Read about [ES6 class components and functional stateless components](https://reactjs.org/docs/components-and-props.html)
+* Sửa lại thành phần Table và Button trở thành thành phần hàm vô trạng thái
+* Đọc thêm [ES6 class components and functional stateless components](https://reactjs.org/docs/components-and-props.html)
 
-## Styling Components
+## Thành phần Style
 
-In this section, we'll add some basic styling to our application and components using the *src/App.css* and *src/index.css* files. These files should already be in your project, since you have bootstrapped it with *create-react-app*. They should be imported in your *src/App.js* and *src/index.js* files too. The following is CSS that can be copied and pasted to these files, but feel free to use your own if you're comfortable with CSS.
+Tại mục này, chúng ta sẽ thêm một chút giao diện cơ bản cho ứng dụng của chúng ta và thành phần sử dụng tệp *src/App.css* và *src/index.css*. Những tệp này nên có sẵn trong dự án của bạn, bởi lẽ bạn đã đẩy nhanh nó với *create-react-app*. Chúng nên được thêm vào tệp *src/App.js* và *src/index.js*  nữa. Những thứ dưới đây là CSS mà có thể sao chép và dán vào những tệp này, nhưng hãy tự do sử dụng của riêng bạn nếu bạn cảm thấy mình ổn với CSS.
 
-First, styling for your overall application:
+Đầu tiên, style cho toàn bộ ứng dụng:
 
 {title="src/index.css",lang="css"}
 ~~~~~~~~
@@ -1591,7 +1591,7 @@ button:hover {
 }
 ~~~~~~~~
 
-Second, styling for your components in the App file:
+Tiếp theo, style cho thành phần của bạn trong tệp App:
 
 {title="src/App.css",lang="css"}
 ~~~~~~~~
@@ -1660,9 +1660,9 @@ Second, styling for your components in the App file:
 }
 ~~~~~~~~
 
-Now we can use this style with some of our components. Remember to use React `className` instead of `class` as an HTML attribute.
+Giờ thì chúng ta có thể sử dụng style này với một phần của những thành phần của chúng ta. Hãy nhớ sử dụng `className` thay vì `class` như là một thuộc tính HTML.
 
-First, apply it in your App ES6 class component:
+Đầu tiên, áp dụng nó vào thành phần lớp ES6 App:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -1699,7 +1699,7 @@ class App extends Component {
 }
 ~~~~~~~~
 
-Second, apply it in your Table functional stateless component:
+Tiếp theo, áp dụng nó trong thành phần hàm vô trạng thái Table:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -1736,9 +1736,9 @@ const Table = ({ list, pattern, onDismiss }) =>
 # leanpub-end-insert
 ~~~~~~~~
 
-Now the application and components have been styled with basic CSS. Further, we know JSX mixes up HTML and JavaScript, and now we could arguably add CSS to that mix. That's called inline style, where you can define JavaScript objects and pass them to the style attribute of an element.
+Giờ thì ứng dụng và thành phần đã được style cơ bản với CSS. Ngoài ra, chúng ta biết JSX trộn với HTML và JavaScript, và chúng ta có thể sử dụng và giờ chúng ta có thể thêm CSS vào thứ trộn đó. Đó gọi là style một dòng, nơi bạn có thể định nghĩa đối tượng JavaScript và truyền chúng vào thuộc tính style của một phần tử.
 
-Let's keep the Table column width flexible by using inline style.
+Hãy giữ độ rộng cột của Table linh hoạt sử style một dòng.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~~
@@ -1773,7 +1773,7 @@ const Table = ({ list, pattern, onDismiss }) =>
   </div>
 ~~~~~~~~
 
-The style is inlined now. Define the style objects outside of your elements to make it cleaner.
+Style giờ đã thành một dòng. Định nghĩa đối tượng style bên ngoài phần tử của bạn giúp nó sạch sẽ hơn.
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~~
@@ -1790,32 +1790,32 @@ const smallColumn = {
 };
 ~~~~~~~~
 
-After that, we use them in the columns: `<span style={smallColumn}>`. There different opinions and solutions about style in React, but the pure inline CSS we used is sufficient for this tutorial. I don't want to be opinionated here, but I want to leave you some more options. You can read about them and apply them on your own:
+Sau những thứ trên, chúng ta sử dụng chúng trong  cột: `<span style={smallColumn}>`. Có những lựa chon khác nhau và giải pháp về style trong React, nhưng CSS một dòng sạch sẽ chúng ta sử dụng để cung cấp cho hướng dẫn này. Tôi không muốn nêu ý kiến chủ quan tại đây, nhưng tôi muốn để cho bạn nhiều lựa chọn hơn. Bạn có thể đọc về chúng và tự sử dụng chúng:
 
 * [styled-components](https://github.com/styled-components/styled-components)
 * [CSS Modules](https://github.com/css-modules/css-modules) (read my short article on [how to use CSS modules in create-react-app](https://www.robinwieruch.de/create-react-app-css-modules/))
 * [Sass](https://sass-lang.com/) (read my short article on [how to use Sass in create-react-app](https://www.robinwieruch.de/create-react-app-with-sass-support/))
 
-But if you are new to React, I would recommend to stick to pure CSS and inline style for now.
+Nhưng nếu bạn mới với React, tôi sẽ khuyên bạn sử dụng CSS thuần và style một dòng cho hiện tại.
 
 {pagebreak}
 
-You have learned the basics on how to write your own React application! Let's recap the last chapter:
+Bạn đã học được những điều cơ bản về cách để viết ứng dụng riêng của bạn với React! Hãy cùng tóm tắt chương vừa rồi:
 
 * **React**
-  * Use `this.state` and `setState()` to manage your local component state
-  * Pass functions or class methods to your element handler
-  * Use forms and events in React to add interactions
-  * Unidirectional data flow is an important concept in React
-  * Embrace controlled components
-  * Compose components with children and reusable components
-  * Usage and implementation of ES6 class components and functional stateless components
-  * Approaches to style your components
+  * Sử dụng `this.state` và `setState()` để quản lý trạng thái cục bộ của thành phần
+  * Truyền hàm hoặc phương thức lớp vào phần tử xử lý của bạn
+  * Sử dụng forms và events trong React để thêm tương tác
+  * Dòng chảy dữ liệu vô hướng là một khái niệm quan trọng trong React
+  * Vây quanh thành phần được kiểm soát
+  * Kết hợp thành phần với con và tái sử dụng thành phần
+  * Cú pháp và triển khai của thành phần lớp ES6 và thành phần hàm vô trạng thái
+  * Bước đầu style thành phần của bạn
 * **ES6**
-  * Functions that are bound to a class are class methods
-  * Destructuring of objects and arrays
-  * Default parameters
-* **General**
-  * Higher-order functions
+  * Hàm mà gắn liền với lớp được gọi là phương thức lớp
+  * Destructuring của đối tượng và mảng
+  * Tham số mặc định
+* **Tổng quan**
+  * Hàm bậc cao
 
-Again, it makes sense to take a break, internalize the lessons, and apply them on your own. Experiment with the source code you have written so far. The source code for this project is found in the [official repository](https://github.com/the-road-to-learn-react/hackernews-client/tree/5.2).
+Một lần nữa, thật có lý khi nghỉ một chút, ghi nhớ bài học, và tự mình áp dụng chúng. Trải nghiệm với mã nguồn bạn đã viết ra cho đến nay. Mã nguồn của dự án này được tìm thấy tại [kho chính thức](https://github.com/the-road-to-learn-react/hackernews-client/tree/5.2).
